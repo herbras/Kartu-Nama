@@ -44,18 +44,16 @@
         <img id="bgImageFeed" src="templateFeed.jpg" alt="Background Image for Feed" style="display:none;">
         <img id="bgImageStoryArabic" src="templateStoryArabic.jpg" alt="Background Image for Story" style="display:none;">
         <img id="bgImageFeedArabic" src="templateFeedArabic.jpg" alt="Background Image for Feed" style="display:none;">
+        <h1>Buat Kartu Tahniah Anda</h1>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" x-model="nama" @input="drawKartuNama()">
         <label for="size">Ukuran:</label>
-        <select id="size" x-model="size">
+        <select id="size" x-model="size" @change="drawKartuNama()">
             <option value="feed">Feed Indo</option>
             <option value="story">Story Indo</option>
             <option value="feedArab">Feed Arab</option>
             <option value="storyArab">Story Arab</option>
         </select>
-        <h1>Buat Kartu Tahniah Anda</h1>
-        <label for="nama">Nama:</label>
-        <input type="text" id="nama" name="nama" x-model="nama">
-        <button type="button" @click="drawKartuNama()">Buat Kartu</button>
-        <br>
         <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
         </canvas>
         <img id="previewKartuNama" src="" alt="Preview Kartu Nama">
