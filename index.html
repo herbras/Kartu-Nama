@@ -36,10 +36,14 @@
     <div x-data="kartuNama()" class="container">
         <img id="bgImageStory" src="templateStory.jpg" alt="Background Image for Story" style="display:none;">
         <img id="bgImageFeed" src="templateFeed.jpg" alt="Background Image for Feed" style="display:none;">
+        <img id="bgImageStoryArabic" src="templateStoryArabic.jpg" alt="Background Image for Story" style="display:none;">
+        <img id="bgImageFeedArabic" src="templateFeedArabic.jpg" alt="Background Image for Feed" style="display:none;">
         <label for="size">Ukuran:</label>
         <select id="size" x-model="size">
-            <option value="feed">Feed Instagram</option>
-            <option value="story">Story Instagram</option>
+            <option value="feed">Feed Indo</option>
+            <option value="story">Story Indo</option>
+            <option value="feedArab">Feed Arab</option>
+            <option value="storyArab">Story Arab</option>
         </select>
         <h1>Buat Kartu Tahniah Anda</h1>
         <label for="nama">Nama:</label>
@@ -67,39 +71,60 @@
 
 
                 drawKartuNama() {
-                    const canvas = document.getElementById('kartuNamaCanvas');
-                    const ctx = canvas.getContext('2d');
-                    const bgImageStory = document.getElementById('bgImageStory');
-                    const bgImageFeed = document.getElementById('bgImageFeed');
-                    const { width, height } = this.getCanvasSize();
+            const canvas = document.getElementById('kartuNamaCanvas');
+            const ctx = canvas.getContext('2d');
+            const bgImageStory = document.getElementById('bgImageStory');
+            const bgImageFeed = document.getElementById('bgImageFeed');
+            const bgImageStoryArabic = document.getElementById('bgImageStoryArabic');
+            const bgImageFeedArabic = document.getElementById('bgImageFeedArabic');
+            const { width, height } = this.getCanvasSize();
 
-                    canvas.width = width;
-                    canvas.height = height;
+            canvas.width = width;
+            canvas.height = height;
 
-                    ctx.clearRect(0, 0, width, height);
+            ctx.clearRect(0, 0, width, height);
 
-                    if (this.size === 'story') {
-                        ctx.drawImage(bgImageStory, 0, 0, width, height);
-                        ctx.fillStyle = '#265C32';
-                        ctx.font = '800 60px Poppins'; // Change font to Inter
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'top';
-                        const paddingLeft = 530;
-                        const paddingTop = 1430;
-                        ctx.fillText(this.nama, paddingLeft, paddingTop);
-                    } else {
-                        ctx.drawImage(bgImageFeed, 0, 0, width, height);
-                        ctx.fillStyle = '#265C32';
-                        ctx.font = '800 45px Poppins'; // Change font to Inter
-                        ctx.textAlign = 'center';
-                        ctx.textBaseline = 'top';
-                        const paddingLeft = 530;
-                        const paddingTop = 930;
-                        ctx.fillText(this.nama, paddingLeft, paddingTop);
-                    }
+            switch (this.size) {
+                case 'story':
+                    ctx.drawImage(bgImageStory, 0, 0, width, height);
+                    break;
+                case 'feed':
+                    ctx.drawImage(bgImageFeed, 0, 0, width, height);
+                    break;
+                case 'storyArab':
+                    ctx.drawImage(bgImageStoryArabic, 0, 0, width, height);
+                    break;
+                case 'feedArab':
+                    ctx.drawImage(bgImageFeedArabic, 0, 0, width, height);
+                    break;
+            }
 
-                    this.updatePreview();
-                },
+            ctx.fillStyle = '#265C32';
+    ctx.font = this.size === 'story' || this.size === 'storyArab' ? '800 60px Poppins' : '800 45px Poppins';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    const paddingLeft = 530;
+    let paddingTop;
+
+    switch (this.size) {
+        case 'story':
+            paddingTop = 1430;
+            break;
+        case 'feed':
+            paddingTop = 930;
+            break;
+        case 'storyArab':
+            paddingTop = 1540; // Adjust this value as needed
+            break;
+        case 'feedArab':
+            paddingTop = 970; // Adjust this value as needed
+            break;
+    }
+
+    ctx.fillText(this.nama, paddingLeft, paddingTop);
+
+    this.updatePreview();
+        },
 
                 unduhKartuNama() {
                     this.updatePreview();
@@ -110,12 +135,12 @@
                     link.click();
                 },
                 getCanvasSize() {
-                    if (this.size === 'story') {
-                        return { width: 1080, height: 1920 };
-                    } else {
-                        return { width: 1080, height: 1080 };
-                    }
-                },
+            if (this.size === 'story' || this.size === 'storyArab') {
+                return { width: 1080, height: 1920 };
+            } else {
+                return { width: 1080, height: 1080 };
+            }
+        },
                 updatePreview() {
                     const canvas = document.getElementById('kartuNamaCanvas');
                     const preview = document.getElementById('previewKartuNama');
@@ -130,7 +155,7 @@
                     preview.src = tempCanvas.toDataURL('image/png');
                 },
                 getPreviewScaleFactor() {
-                    if (this.size === 'story') {
+                    if (this.size === 'story' || this.size === 'storyArab') {
                         return 0.25; // 50% dari ukuran asli
                     } else {
                         return 400 / 1080; // 400px lebar untuk IG Feed
