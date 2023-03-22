@@ -5,21 +5,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Kartu Tahniah</title>
     <style>
         .container {
-    max-width: 1000px; /* Mengatur lebar maksimum kontainer */
-    margin: 0 auto; /* Membuat kontainer rata tengah */
-    padding: 20px; /* Menambahkan padding pada kontainer */
-}
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-#kartuNamaCanvas {
-    max-width: 100%; /* Mengatur lebar maksimum canvas agar tidak lebih besar dari kontainer */
-    height: auto; /* Membuat tinggi gambar otomatis mengikuti lebar */
-    display: block; /* Menghilangkan margin atas dan bawah secara otomatis */
-    margin: 20px auto; /* Menambahkan margin atas dan bawah serta membuat canvas rata tengah */
-}
+        #kartuNamaCanvas {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            margin: 20px auto;
+        }
+
+        #previewKartuNama {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
     </style>
 </head>
 
@@ -39,48 +45,53 @@
         <br>
         <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
         </canvas>
-        <br>
+        <img id="previewKartuNama" src="" alt="Preview Kartu Nama">
+        
         <button id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu Nama</button>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
         function kartuNama() {
             return {
                 nama: '',
                 size: 'feed',
                 drawKartuNama() {
-    const canvas = document.getElementById('kartuNamaCanvas');
-    const ctx = canvas.getContext('2d');
-    const bgImageStory = document.getElementById('bgImageStory');
-    const bgImageFeed = document.getElementById('bgImageFeed');
-    const { width, height } = this.getCanvasSize();
+                    const canvas = document.getElementById('kartuNamaCanvas');
+                    const ctx = canvas.getContext('2d');
+                    const bgImageStory = document.getElementById('bgImageStory');
+                    const bgImageFeed = document.getElementById('bgImageFeed');
+                    const { width, height } = this.getCanvasSize();
 
-    canvas.width = width;
-    canvas.height = height;
+                    canvas.width = width;
+                    canvas.height = height;
 
-    ctx.clearRect(0, 0, width, height);
+                    ctx.clearRect(0, 0, width, height);
 
-    if (this.size === 'story') {
-        ctx.drawImage(bgImageStory, 0, 0, width, height);
-        ctx.fillStyle = '#000000';
-        ctx.font = '45px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        const paddingLeft = 530; // Jarak teks dari tepi kiri
-        const paddingTop = 1340; // Jarak teks dari tepi atas
-        ctx.fillText(this.nama, paddingLeft, paddingTop);
-    } else {
-        ctx.drawImage(bgImageFeed, 0, 0, width, height);
-        ctx.fillStyle = '#000000';
-        ctx.font = '45px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        const paddingLeft = 530; // Jarak teks dari tepi kiri
-        const paddingTop = 222; // Jarak teks dari tepi atas
-        ctx.fillText(this.nama, paddingLeft, paddingTop);
-    }
-},
+                    if (this.size === 'story') {
+                        ctx.drawImage(bgImageStory, 0, 0, width, height);
+                        ctx.fillStyle = '#000000';
+                        ctx.font = '45px Arial';
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+                        const paddingLeft = 530;
+                        const paddingTop = 1340;
+                        ctx.fillText(this.nama, paddingLeft, paddingTop);
+                    } else {
+                        ctx.drawImage(bgImageFeed, 0, 0, width, height);
+                        ctx.fillStyle = '#000000';
+                        ctx.font = '45px Arial';
+                        ctx
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+                        const paddingLeft = 530;
+                        const paddingTop = 222;
+                        ctx.fillText(this.nama, paddingLeft, paddingTop);
+                    }
+
+                    this.updatePreview();
+                },
                 unduhKartuNama() {
+                    this.updatePreview();
                     const canvas = document.getElementById('kartuNamaCanvas');
                     const link = document.createElement('a');
                     link.href = canvas.toDataURL('image/png');
@@ -92,6 +103,26 @@
                         return { width: 1080, height: 1920 };
                     } else {
                         return { width: 1080, height: 1080 };
+                    }
+                },
+                updatePreview() {
+                    const canvas = document.getElementById('kartuNamaCanvas');
+                    const preview = document.getElementById('previewKartuNama');
+                    const scaleFactor = this.getPreviewScaleFactor();
+
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = canvas.width * scaleFactor;
+                    tempCanvas.height = canvas.height * scaleFactor;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCtx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+
+                    preview.src = tempCanvas.toDataURL('image/png');
+                },
+                getPreviewScaleFactor() {
+                    if (this.size === 'story') {
+                        return 0.25; // 50% dari ukuran asli
+                    } else {
+                        return 400 / 1080; // 400px lebar untuk IG Feed
                     }
                 },
             };
