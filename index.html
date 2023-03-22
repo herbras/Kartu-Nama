@@ -48,13 +48,13 @@
         <h1>Buat Kartu Tahniah Anda</h1>
         <label for="nama">Nama:</label>
         <input type="text" id="nama" name="nama" x-model="nama">
-        <button type="button" @click="drawKartuNama()">Buat Kartu Nama</button>
+        <button type="button" @click="drawKartuNama()">Buat Kartu</button>
         <br>
         <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
         </canvas>
         <img id="previewKartuNama" src="" alt="Preview Kartu Nama">
 
-        <button id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu Nama</button>
+        <button id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
