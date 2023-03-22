@@ -1,0 +1,168 @@
+---
+---
+<div x-data="kartuNama()"  class="card  md:flex-row gap-5 w-full bg-base-100 shadow-xl">
+    <img id="bgImageStory" src="templateStory.jpg" alt="Background Image for Story" style="display:none;">
+    <img id="bgImageFeed" src="templateFeed.jpg" alt="Background Image for Feed" style="display:none;">
+    <img id="bgImageStoryArabic" src="templateStoryArabic.jpg" alt="Background Image for Story" style="display:none;">
+    <img id="bgImageFeedArabic" src="templateFeedArabic.jpg" alt="Background Image for Feed" style="display:none;">
+    <div class="card-body m-45 w-full grid gap-8">
+      
+      <div class="card-actions justify-end">
+
+		<input type="text" id="nama" name="nama" x-model="nama" @input="drawKartuNama()" placeholder="Tulis Namamu disini" class="input input-bordered input-secondary w-full" />
+    
+    <select id="size" x-model="size" @change="drawKartuNama()" class="custom-select select select-warning w-full " placeholder="Ukuran">
+		<option disabled selected>Pilih Model Kartu</option>
+
+        <option value="feed">Feed Indo</option>
+        <option value="story">Story Indo</option>
+        <option value="feedArab">Feed Arab</option>
+        <option value="storyArab">Story Arab</option>
+    </select>
+      </div>
+       
+	  <button class="btn btn-success" id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu Nama</button>
+
+    </div>
+    <figure class="w-full"> <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
+    </canvas>
+    <img id="previewKartuNama" src="" alt="Preview Kartu Nama"></figure>
+  </div>
+
+
+<script is:inline>
+ WebFont.load({
+            google: {
+                families: ['Poppins:800']
+            }
+        });
+
+        function kartuNama() {
+            return {
+                nama: '',
+                size: 'feed',
+
+
+                drawKartuNama() {
+            const canvas = document.getElementById('kartuNamaCanvas');
+            const ctx = canvas.getContext('2d');
+            const bgImageStory = document.getElementById('bgImageStory');
+            const bgImageFeed = document.getElementById('bgImageFeed');
+            const bgImageStoryArabic = document.getElementById('bgImageStoryArabic');
+            const bgImageFeedArabic = document.getElementById('bgImageFeedArabic');
+            const { width, height } = this.getCanvasSize();
+
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.clearRect(0, 0, width, height);
+
+            switch (this.size) {
+                case 'story':
+                    ctx.drawImage(bgImageStory, 0, 0, width, height);
+                    break;
+                case 'feed':
+                    ctx.drawImage(bgImageFeed, 0, 0, width, height);
+                    break;
+                case 'storyArab':
+                    ctx.drawImage(bgImageStoryArabic, 0, 0, width, height);
+                    break;
+                case 'feedArab':
+                    ctx.drawImage(bgImageFeedArabic, 0, 0, width, height);
+                    break;
+            }
+
+            ctx.fillStyle = '#265C32';
+    ctx.font = this.size === 'story' || this.size === 'storyArab' ? '800 60px Poppins' : '800 45px Poppins';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    const paddingLeft = 530;
+    let paddingTop;
+
+    switch (this.size) {
+        case 'story':
+            paddingTop = 1430;
+            break;
+        case 'feed':
+            paddingTop = 930;
+            break;
+        case 'storyArab':
+            paddingTop = 1540; // Adjust this value as needed
+            break;
+        case 'feedArab':
+            paddingTop = 970; // Adjust this value as needed
+            break;
+    }
+
+    ctx.fillText(this.nama, paddingLeft, paddingTop);
+
+    this.updatePreview();
+        },
+
+                unduhKartuNama() {
+                    this.updatePreview();
+                    const canvas = document.getElementById('kartuNamaCanvas');
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = `${this.nama}.png`;
+                    link.click();
+                },
+                getCanvasSize() {
+            if (this.size === 'story' || this.size === 'storyArab') {
+                return { width: 1080, height: 1920 };
+            } else {
+                return { width: 1080, height: 1080 };
+            }
+        },
+                updatePreview() {
+                    const canvas = document.getElementById('kartuNamaCanvas');
+                    const preview = document.getElementById('previewKartuNama');
+                    const scaleFactor = this.getPreviewScaleFactor();
+
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = canvas.width * scaleFactor;
+                    tempCanvas.height = canvas.height * scaleFactor;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCtx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+
+                    preview.src = tempCanvas.toDataURL('image/png');
+                },
+                getPreviewScaleFactor() {
+                    if (this.size === 'story' || this.size === 'storyArab') {
+                        return 0.25; // 50% dari ukuran asli
+                    } else {
+                        return 900 / 1080; // 400px lebar untuk IG Feed
+                    }
+                },
+            };
+        }
+    </script>
+
+<style>
+input[type="text"] {
+        padding: 5px 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+       
+
+        #kartuNamaCanvas {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            margin: 20px auto;
+        }
+
+        #previewKartuNama {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .custom-select::before {
+        content: attr(placeholder);
+        display: inline-block;
+        margin-right: 0.5em;
+        color: inherit;
+        pointer-events: none;
+    }</style>
