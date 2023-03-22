@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        .container {
+    max-width: 1000px; /* Mengatur lebar maksimum kontainer */
+    margin: 0 auto; /* Membuat kontainer rata tengah */
+    padding: 20px; /* Menambahkan padding pada kontainer */
+}
+
+#kartuNamaCanvas {
+    max-width: 100%; /* Mengatur lebar maksimum canvas agar tidak lebih besar dari kontainer */
+    height: auto; /* Membuat tinggi gambar otomatis mengikuti lebar */
+    display: block; /* Menghilangkan margin atas dan bawah secara otomatis */
+    margin: 20px auto; /* Menambahkan margin atas dan bawah serta membuat canvas rata tengah */
+}
+    </style>
+</head>
+
+<body>
+    <div x-data="kartuNama()" class="container">
+        <img id="bgImageStory" src="templateStory.jpg" alt="Background Image for Story" style="display:none;">
+        <img id="bgImageFeed" src="templateFeed.webp" alt="Background Image for Feed" style="display:none;">
+        <label for="size">Ukuran:</label>
+        <select id="size" x-model="size">
+            <option value="feed">Feed Instagram</option>
+            <option value="story">Story Instagram</option>
+        </select>
+        <h1>Buat Kartu Nama Anda</h1>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" x-model="nama">
+        <button type="button" @click="drawKartuNama()">Buat Kartu Nama</button>
+        <br>
+        <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
+        </canvas>
+        <br>
+        <button id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu Nama</button>
+    </div>
+
+    <script>
+        function kartuNama() {
+            return {
+                nama: '',
+                size: 'feed',
+                drawKartuNama() {
+    const canvas = document.getElementById('kartuNamaCanvas');
+    const ctx = canvas.getContext('2d');
+    const bgImageStory = document.getElementById('bgImageStory');
+    const bgImageFeed = document.getElementById('bgImageFeed');
+    const { width, height } = this.getCanvasSize();
+
+    canvas.width = width;
+    canvas.height = height;
+
+    ctx.clearRect(0, 0, width, height);
+
+    if (this.size === 'story') {
+        ctx.drawImage(bgImageStory, 0, 0, width, height);
+        ctx.fillStyle = '#000000';
+        ctx.font = '45px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        const paddingLeft = 530; // Jarak teks dari tepi kiri
+        const paddingTop = 1340; // Jarak teks dari tepi atas
+        ctx.fillText(this.nama, paddingLeft, paddingTop);
+    } else {
+        ctx.drawImage(bgImageFeed, 0, 0, width, height);
+        ctx.fillStyle = '#000000';
+        ctx.font = '45px Arial';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        const paddingLeft = 530; // Jarak teks dari tepi kiri
+        const paddingTop = 222; // Jarak teks dari tepi atas
+        ctx.fillText(this.nama, paddingLeft, paddingTop);
+    }
+},
+                unduhKartuNama() {
+                    const canvas = document.getElementById('kartuNamaCanvas');
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = `${this.nama}.png`;
+                    link.click();
+                },
+                getCanvasSize() {
+                    if (this.size === 'story') {
+                        return { width: 1080, height: 1920 };
+                    } else {
+                        return { width: 1080, height: 1080 };
+                    }
+                },
+            };
+        }
+    </script>
+</body>
+
+</html>
