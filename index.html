@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kartu Tahniah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
     <style>
         .container {
             max-width: 1000px;
@@ -32,13 +37,13 @@
 <body>
     <div x-data="kartuNama()" class="container">
         <img id="bgImageStory" src="templateStory.jpg" alt="Background Image for Story" style="display:none;">
-        <img id="bgImageFeed" src="templateFeed.webp" alt="Background Image for Feed" style="display:none;">
+        <img id="bgImageFeed" src="templateFeed.jpg" alt="Background Image for Feed" style="display:none;">
         <label for="size">Ukuran:</label>
         <select id="size" x-model="size">
             <option value="feed">Feed Instagram</option>
             <option value="story">Story Instagram</option>
         </select>
-        <h1>Buat Kartu Nama Anda</h1>
+        <h1>Buat Kartu Tahniah Anda</h1>
         <label for="nama">Nama:</label>
         <input type="text" id="nama" name="nama" x-model="nama">
         <button type="button" @click="drawKartuNama()">Buat Kartu Nama</button>
@@ -46,15 +51,23 @@
         <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
         </canvas>
         <img id="previewKartuNama" src="" alt="Preview Kartu Nama">
-        
+
         <button id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu Nama</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
+        WebFont.load({
+            google: {
+                families: ['Inter:800']
+            }
+        });
+
         function kartuNama() {
             return {
                 nama: '',
                 size: 'feed',
+
+
                 drawKartuNama() {
                     const canvas = document.getElementById('kartuNamaCanvas');
                     const ctx = canvas.getContext('2d');
@@ -70,26 +83,26 @@
                     if (this.size === 'story') {
                         ctx.drawImage(bgImageStory, 0, 0, width, height);
                         ctx.fillStyle = '#000000';
-                        ctx.font = '45px Arial';
+                        ctx.font = '800 60px Inter'; // Change font to Inter
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'top';
                         const paddingLeft = 530;
-                        const paddingTop = 1340;
+                        const paddingTop = 1430;
                         ctx.fillText(this.nama, paddingLeft, paddingTop);
                     } else {
                         ctx.drawImage(bgImageFeed, 0, 0, width, height);
                         ctx.fillStyle = '#000000';
-                        ctx.font = '45px Arial';
-                        ctx
+                        ctx.font = '800 45px Inter'; // Change font to Inter
                         ctx.textAlign = 'center';
                         ctx.textBaseline = 'top';
                         const paddingLeft = 530;
-                        const paddingTop = 222;
+                        const paddingTop = 930;
                         ctx.fillText(this.nama, paddingLeft, paddingTop);
                     }
 
                     this.updatePreview();
                 },
+
                 unduhKartuNama() {
                     this.updatePreview();
                     const canvas = document.getElementById('kartuNamaCanvas');
