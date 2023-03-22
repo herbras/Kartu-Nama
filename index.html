@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartu Tahniah</title>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9784476dde3c4526b1ceba22b7316da7"}'></script><!-- End Cloudflare Web Analytics -->
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #kartuNamaCanvas {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            margin: 20px auto;
+        }
+
+        #previewKartuNama {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+          /* Add this to your existing <style> section */
+    input[type="text"] {
+        padding: 5px 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+    </style>
+</head>
+
+<body>
+    <div x-data="kartuNama()" class="container">
+        <img id="bgImageStory" src="templateStory.jpg" alt="Background Image for Story" style="display:none;">
+        <img id="bgImageFeed" src="templateFeed.jpg" alt="Background Image for Feed" style="display:none;">
+        <img id="bgImageStoryArabic" src="templateStoryArabic.jpg" alt="Background Image for Story" style="display:none;">
+        <img id="bgImageFeedArabic" src="templateFeedArabic.jpg" alt="Background Image for Feed" style="display:none;">
+        <h1>Buat Kartu Tahniah Anda</h1>
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" x-model="nama" @input="drawKartuNama()">
+        <label for="size">Tipe:</label>
+        <select id="size" x-model="size" @change="drawKartuNama()">
+            <option value="feed">Feed Indo</option>
+            <option value="story">Story Indo</option>
+            <option value="feedArab">Feed Arab</option>
+            <option value="storyArab">Story Arab</option>
+        </select>
+        <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
+        </canvas>
+        <img id="previewKartuNama" src="" alt="Preview Kartu Nama">
+
+        <button id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ['Poppins:800']
+            }
+        });
+
+        function kartuNama() {
+            return {
+                nama: '',
+                size: 'feed',
+
+
+                drawKartuNama() {
+            const canvas = document.getElementById('kartuNamaCanvas');
+            const ctx = canvas.getContext('2d');
+            const bgImageStory = document.getElementById('bgImageStory');
+            const bgImageFeed = document.getElementById('bgImageFeed');
+            const bgImageStoryArabic = document.getElementById('bgImageStoryArabic');
+            const bgImageFeedArabic = document.getElementById('bgImageFeedArabic');
+            const { width, height } = this.getCanvasSize();
+
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.clearRect(0, 0, width, height);
+
+            switch (this.size) {
+                case 'story':
+                    ctx.drawImage(bgImageStory, 0, 0, width, height);
+                    break;
+                case 'feed':
+                    ctx.drawImage(bgImageFeed, 0, 0, width, height);
+                    break;
+                case 'storyArab':
+                    ctx.drawImage(bgImageStoryArabic, 0, 0, width, height);
+                    break;
+                case 'feedArab':
+                    ctx.drawImage(bgImageFeedArabic, 0, 0, width, height);
+                    break;
+            }
+
+            ctx.fillStyle = '#265C32';
+    ctx.font = this.size === 'story' || this.size === 'storyArab' ? '800 60px Poppins' : '800 45px Poppins';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    const paddingLeft = 530;
+    let paddingTop;
+
+    switch (this.size) {
+        case 'story':
+            paddingTop = 1430;
+            break;
+        case 'feed':
+            paddingTop = 930;
+            break;
+        case 'storyArab':
+            paddingTop = 1540; // Adjust this value as needed
+            break;
+        case 'feedArab':
+            paddingTop = 970; // Adjust this value as needed
+            break;
+    }
+
+    ctx.fillText(this.nama, paddingLeft, paddingTop);
+
+    this.updatePreview();
+        },
+
+                unduhKartuNama() {
+                    this.updatePreview();
+                    const canvas = document.getElementById('kartuNamaCanvas');
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = `${this.nama}.png`;
+                    link.click();
+                },
+                getCanvasSize() {
+            if (this.size === 'story' || this.size === 'storyArab') {
+                return { width: 1080, height: 1920 };
+            } else {
+                return { width: 1080, height: 1080 };
+            }
+        },
+                updatePreview() {
+                    const canvas = document.getElementById('kartuNamaCanvas');
+                    const preview = document.getElementById('previewKartuNama');
+                    const scaleFactor = this.getPreviewScaleFactor();
+
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = canvas.width * scaleFactor;
+                    tempCanvas.height = canvas.height * scaleFactor;
+                    const tempCtx = tempCanvas.getContext('2d');
+                    tempCtx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+
+                    preview.src = tempCanvas.toDataURL('image/png');
+                },
+                getPreviewScaleFactor() {
+                    if (this.size === 'story' || this.size === 'storyArab') {
+                        return 0.25; // 50% dari ukuran asli
+                    } else {
+                        return 400 / 1080; // 400px lebar untuk IG Feed
+                    }
+                },
+            };
+        }
+    </script>
+</body>
+
+</html>
