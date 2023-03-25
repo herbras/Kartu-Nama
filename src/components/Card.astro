@@ -22,7 +22,7 @@
       </div>
        
 	  <button class="btn btn-success" id="unduhKartuNama" @click="unduhKartuNama()">Unduh Kartu Nama</button>
-
+		      <button class="btn btn-primary" id="bagikanKartuNama" @click="bagikanKartuNama()">Bagikan Kartu Nama</button>
     </div>
     <figure class="w-full"> <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
     </canvas>
@@ -98,7 +98,27 @@
 
     this.updatePreview();
         },
+        bagikanKartuNama() {
+    if (!navigator.share) {
+        alert('Web Share API tidak didukung di peramban Anda.');
+        return;
+    }
 
+    this.updatePreview();
+    const canvas = document.getElementById('kartuNamaCanvas');
+    canvas.toBlob(async blob => {
+        try {
+            await navigator.share({
+                title: `${this.nama} - Kartu Nama`,
+                text: 'Berikut adalah kartu nama yang telah saya buat:',
+                files: [new File([blob], `${this.nama}.png`, { type: 'image/png' })],
+            });
+        } catch (error) {
+            console.error('Error saat berbagi kartu nama:', error);
+            alert('Terjadi kesalahan saat berbagi kartu nama.');
+        }
+    }, 'image/png');
+},
                 unduhKartuNama() {
                     this.updatePreview();
                     const canvas = document.getElementById('kartuNamaCanvas');
