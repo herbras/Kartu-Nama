@@ -103,7 +103,7 @@ this.updatePreview();
 },
 bagikanKartuNama() {
 if (!navigator.share) {
-alert('Web Share API tidak didukung di peramban Anda.');
+alert('Fitur ini tidak didukung di peramban Anda.');
 return;
 }
 
@@ -112,13 +112,13 @@ const canvas = document.getElementById('kartuNamaCanvas');
 canvas.toBlob(async blob => {
 try {
     await navigator.share({
-        title: `${this.nama} - Kartu Nama`,
-        text: 'Berikut adalah kartu nama yang telah saya buat:',
+        title: `${this.nama} - Kartu Tahniah`,
+        text: 'تقبل الله منا و منكم :',
         files: [new File([blob], `${this.nama}.png`, { type: 'image/png' })],
     });
 } catch (error) {
     console.error('Error saat berbagi kartu nama:', error);
-    alert('Terjadi kesalahan saat berbagi kartu nama.');
+    alert('Terjadi kesalahan saat berbagi kartu tahniah.');
 }
 }, 'image/png');
 },
