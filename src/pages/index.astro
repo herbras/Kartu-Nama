@@ -1,17 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import Catalog from '../components/Catalog.astro';
+import Collapse from '../components/Collapse.astro';
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout title="Kartu Tahniah.">
 	<main>
-		<h1 class="card-title text-6xl text-accent-focus font-bold">
-			Buat Kartu Tahniah
-			<div class="badge badge-secondary ">V3</div>
-		  </h1>
-		  <p class="text-2xl font-semibold">dari <span class="text-gradient">Al-Qolam</span></p>
+		<Hero />
 			<Card />
-				
+			<Button />
+			<Catalog />
+			<Collapse />
 			<p class="text-4 mt-4 text-center">Credit By <a class="font-600 text-gradient" href="https://sarbeh.com">Ibrahim Nurul Huda</a></p>
 
 	</main>
