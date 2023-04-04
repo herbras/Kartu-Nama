@@ -1,0 +1,64 @@
+---
+
+---
+
+<div class="navbar  glass sticky top-0 z-40 hidden rounded-md">
+    <div class="flex-1">
+        <div class="avatar">
+            <div class="w-12 rounded-full ring">
+              <img src="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8" />
+            </div>
+          </div>    </div>
+    <div class="flex-none">
+        <div x-data="shareComponent()" class="container">
+            <button class="btn btn-square btn-ghost" id="bagikanLink" @click="bagikanLink()">
+                <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 512 512"  class="inline-block w-5 h-5 stroke-current"><path fill="currentColor" d="M68.146 496H16V235.333a114.169 114.169 0 0 1 12.025-51.309A136.27 136.27 0 0 1 152 104h136.557V16h42.361l163.709 163.71L330.337 344h-41.78v-88h-88.812a85.4 85.4 0 0 0-81.993 62.244ZM152 136a104.217 104.217 0 0 0-94.923 61.443l-.292.614A82.454 82.454 0 0 0 48 235.333v213.81l38.93-139.5A117.5 117.5 0 0 1 199.745 224h120.812v84.525L449.373 179.71L320.557 50.894V136Z"/></svg>
+
+            </button>
+        </div>
+    </div>
+  </div>
+
+  <script is="inline">
+   document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".navbar");
+
+  let lastScrollTop = 0;
+  window.addEventListener("scroll", function () {
+    const currentScrollTop = window.pageYOffset;
+
+    if (currentScrollTop > lastScrollTop && currentScrollTop > 0) {
+      // Scrolling down
+      navbar.classList.add("navbar-show");
+      navbar.classList.remove("hidden");
+    } else {
+      // Scrolling up or at the top
+      if (currentScrollTop === 0) {
+        // At the top
+        navbar.classList.add("hidden");
+      } 
+    }
+
+    lastScrollTop = currentScrollTop;
+  });
+});
+
+
+    function shareComponent() {
+            return {
+                bagikanLink() {
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'Al-Qolam',
+                            text: 'Kumpulan link Bermanfaat Al-Qolam',
+                            url: 'https://kartu.sarbeh.com',
+                        })
+                        .then(() => console.log('Berhasil membagikan!'))
+                        .catch((error) => console.log('Gagal membagikan:', error));
+                    } else {
+                        console.log('Web Share API tidak tersedia di perangkat ini.');
+                    }
+                }
+            }
+        }
+    </script>
