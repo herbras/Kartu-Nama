@@ -1,4 +1,12 @@
 ---
+export interface Props {
+	title: string;
+	src : string;
+  text: string,
+  url: string,
+}
+
+const { title, src, text, url } = Astro.props;
 
 ---
 
@@ -6,7 +14,7 @@
     <div class="flex-1">
         <div class="avatar">
             <div class="w-12 rounded-full ring">
-              <img src="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8" />
+              <img src={src} />
             </div>
           </div>    </div>
     <div class="flex-none">
@@ -49,9 +57,9 @@
                 bagikanLink() {
                     if (navigator.share) {
                         navigator.share({
-                            title: 'Al-Qolam',
-                            text: 'Kumpulan link Bermanfaat Al-Qolam',
-                            url: 'https://kartu.sarbeh.com',
+                            title: {title},
+                            text: {text},
+                            url: {url},
                         })
                         .then(() => console.log('Berhasil membagikan!'))
                         .catch((error) => console.log('Gagal membagikan:', error));

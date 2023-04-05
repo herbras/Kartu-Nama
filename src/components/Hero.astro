@@ -1,11 +1,19 @@
 ---
+export interface Props {
+	name: string;
+	src : string;
+  tagline: string;
+}
+
+const { name, src, tagline} = Astro.props;
 
 ---
 <div class="mx-auto w-fit text-center mt-12">
     <div class="avatar">
         <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-          <img src="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8" />
+          <img src={src} />
         </div>
       </div>
-      <h1 class="text-3xl text-lime-focus font-bold">@AlQolam.web</h1>
+      <h1 class="text-3xl text-lime-focus font-bold">{name}</h1>
+      <h1 class="text-md text-lime-focus font-bold">{tagline}</h1>
 </div>
