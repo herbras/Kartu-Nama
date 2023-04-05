@@ -42,7 +42,7 @@
 <script is:inline>
 WebFont.load({
     google: {
-        families: ['Poppins:800','Almarai:700']
+        families: ['Poppins:800','Almarai:800']
     }
 });
 
@@ -81,12 +81,23 @@ function kartuNama() {
             break;
     }
 
+// Buat objek gradien linear
+const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+
+// Tambahkan titik-titik warna (color stops) ke objek gradien
+gradient.addColorStop(0, '#754B00');
+gradient.addColorStop(0.2448, '#D48C0C');
+gradient.addColorStop(0.4714, '#754B00');
+gradient.addColorStop(0.7448, '#D48C0C');
+gradient.addColorStop(1, '#754B00');
+
+// Terapkan gradien pada ctx.fillStyle
+ctx.fillStyle = gradient;
     
-    ctx.fillStyle = '#265C32';
     ctx.font = this.size === 'story' ? '800 60px Poppins' :
            this.size === 'feed' ? '800 45px Poppins' :
-           this.size === 'storyArab' ? '700 60px Almarai' :
-           this.size === 'feedArab' ? '700 45px Almarai' :
+           this.size === 'storyArab' ? '800 60px Almarai' :
+           this.size === 'feedArab' ? '800 45px Almarai' :
            ''; // default value if none of the conditions match
 ctx.textAlign = 'center';
 ctx.textBaseline = 'top';
