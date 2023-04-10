@@ -6,6 +6,55 @@ import Catalog from '../components/Catalog.astro';
 import Collapse from '../components/Collapse.astro';
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
+
+const linkClient = [
+    {
+        nama: 'Website',
+        link: 'sarbeh.com/'
+    },{
+        nama: 'Portofolio',
+        link: 'sarbeh.com/work/'
+    },{
+        nama: 'Blog',
+        link: 'sarbeh.com/blog/'
+    },
+    {
+        nama: 'Free Assets',
+        link: 't.me/alqolam_web'
+    },
+    
+]
+
+const dataClient = [
+    {
+       images : "/stock-1.webp",
+       alt : "contoh",
+       title: "Ini Gambar",
+       desc : "ini deskripsi",
+       CTA : "Tombol CTA"
+    },
+    {
+       images : "/stock-2.webp",
+       alt : "contoh",
+       title: "Ini Gambar",
+       desc : "ini deskripsi",
+       CTA : "Tombol CTA"
+    },
+    {
+       images : "/stock-3.webp",
+       alt : "contoh",
+       title: "Ini Gambar",
+       desc : "ini deskripsi",
+       CTA : "Tombol CTA"
+    },
+    {
+       images : "/stock-4.webp",
+       alt : "contoh",
+       title: "Ini Gambar",
+       desc : "ini deskripsi",
+       CTA : "Tombol CTA"
+    },
+]
 ---
 
 <Layout title="Kartu Tahniah.">
@@ -21,10 +70,10 @@ import Nav from '../components/Nav.astro';
 		src = "/finger.jpg"
 		tagline= "Roastery • Supply, Collaborate and Educate"
         />
-			<Card />
-			<Button />
-			<Catalog />
-			<Collapse />
+		<Card />
+		<Button linkClient={linkClient}/>
+		<Catalog Judul="Bacaan" dataClient={dataClient}/>
+		<Collapse />
 			
 			<p class="text-4 mt-4 text-center">Credit By <a class="font-600 text-gradient" href="https://sarbeh.com">Ibrahim Nurul Huda</a></p>
 
