@@ -1,41 +1,14 @@
 ---
 export interface Props {
-	Judul : string
+	Judul : string,
+  dataClient : Array<{images:string, alt:string,title:string, desc:string,link:string}>,
 }
 
-const {Judul } = Astro.props;
+
+const {Judul, dataClient } = Astro.props;
 
 
-const dataClient = [
-    {
-       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/ramen.webp",
-       alt : "ramen",
-       title: "Asik Belajar Midjourney",
-       desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
-       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney"
-    },
-    {
-       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/laptop.webp",
-       alt : "laptop",
-       title: "Gambaran Sheet UMKM",
-       desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
-       link : "https://sarbeh.com/blog/abstraksi-sheet-umkm"
-    },
-    {
-       images : "https://sarbeh.com/assets/robot.webp",
-       alt : "robot",
-       title: "Panduan Cerdas Chat GPT",
-       desc : "Langkah awal sebelum menggunakan Chat GPT",
-       link : "https://sarbeh.com/blog/panduan-cerdas-menggunakan-chatgpt"
-    },
-    {
-       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/photo-1663630487123-b27d445e8838.webp",
-       alt : "gambar kertas warna warni",
-       title: "Projek dan Klien",
-       desc : "Belajar terus Belajar",
-       link : "https://sarbeh.com/blog/projek-dan-klien"
-    },
-]
+
 ---
 <div class="p-4 mt-5">
     <h1 class="card-title text-2xl text-accent-focus font-bold">
