@@ -1,51 +1,57 @@
 ---
+export interface Props {
+	Judul : string
+}
+
+const {Judul } = Astro.props;
+
+
 const dataClient = [
     {
-       images : "/stock-1.webp",
-       alt : "contoh",
-       title: "Ini Gambar",
-       desc : "ini deskripsi",
-       CTA : "Tombol CTA"
+       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/ramen.webp",
+       alt : "ramen",
+       title: "Asik Belajar Midjourney",
+       desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
+       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney"
     },
     {
-       images : "/stock-2.webp",
-       alt : "contoh",
-       title: "Ini Gambar",
-       desc : "ini deskripsi",
-       CTA : "Tombol CTA"
+       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/laptop.webp",
+       alt : "laptop",
+       title: "Gambaran Sheet UMKM",
+       desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
+       link : "https://sarbeh.com/blog/abstraksi-sheet-umkm"
     },
     {
-       images : "/stock-3.webp",
-       alt : "contoh",
-       title: "Ini Gambar",
-       desc : "ini deskripsi",
-       CTA : "Tombol CTA"
+       images : "https://sarbeh.com/assets/robot.webp",
+       alt : "robot",
+       title: "Panduan Cerdas Chat GPT",
+       desc : "Langkah awal sebelum menggunakan Chat GPT",
+       link : "https://sarbeh.com/blog/panduan-cerdas-menggunakan-chatgpt"
     },
     {
-       images : "/stock-4.webp",
-       alt : "contoh",
-       title: "Ini Gambar",
-       desc : "ini deskripsi",
-       CTA : "Tombol CTA"
+       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/photo-1663630487123-b27d445e8838.webp",
+       alt : "gambar kertas warna warni",
+       title: "Projek dan Klien",
+       desc : "Belajar terus Belajar",
+       link : "https://sarbeh.com/blog/projek-dan-klien"
     },
 ]
 ---
 <div class="p-4 mt-5">
     <h1 class="card-title text-2xl text-accent-focus font-bold">
-        Bacaan Bagus
-        <div class="badge badge-secondary ">V3</div>
+        {Judul}
+        <div class="badge ">📚</div>
       </h1>
-<div class="carousel carousel-center w-md md:w-lg p-4 space-x-4 bg-neutral rounded-box mt-2">
+<div class="carousel carousel-center w-md md:w-lg p-4 space-x-4 bg-neutral rounded-box mt-2" >
     
     {
-    dataClient.map(({images, alt, title, desc,CTA})=>
+    dataClient.map(({images, alt, title,link})=>
     <div class="carousel-item card w-56 bg-base-100 shadow-xl">
-        <figure><img src={images} class="" alt={alt} /></figure>
+        <figure class=""><img src={images} class="object-fit h-56 w-full" alt={alt} /></figure>
         <div class="card-body ">
           <h2 class="card-title">{title}</h2>
-          <p>{desc}</p>
           <div class="card-actions justify-end">
-            <button class="btn btn-primary">{CTA}</button>
+            <a href={link} class="btn btn-primary">Baca</a>
           </div>
         </div>
       </div>
