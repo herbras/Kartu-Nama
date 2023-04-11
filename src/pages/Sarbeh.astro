@@ -31,33 +31,80 @@ const dataClient = [
        alt : "ramen",
        title: "Asik Belajar Midjourney",
        desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
-       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney"
+       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney",
+	   CTA : "Read"
     },
     {
        images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/laptop.webp",
        alt : "laptop",
        title: "Gambaran Sheet UMKM",
        desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
-       link : "https://sarbeh.com/blog/abstraksi-sheet-umkm"
+       link : "https://sarbeh.com/blog/abstraksi-sheet-umkm",
+	   CTA : "Read"
     },
     {
        images : "https://sarbeh.com/assets/robot.webp",
        alt : "robot",
        title: "Panduan Cerdas Chat GPT",
        desc : "Langkah awal sebelum menggunakan Chat GPT",
-       link : "https://sarbeh.com/blog/panduan-cerdas-menggunakan-chatgpt"
+       link : "https://sarbeh.com/blog/panduan-cerdas-menggunakan-chatgpt",
+	   CTA : "Read"
     },
     {
        images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/photo-1663630487123-b27d445e8838.webp",
        alt : "gambar kertas warna warni",
        title: "Projek dan Klien",
        desc : "Belajar terus Belajar",
-       link : "https://sarbeh.com/blog/projek-dan-klien"
+       link : "https://sarbeh.com/blog/projek-dan-klien",
+	   CTA : "Read"
+    },
+]
+const bisnisClient = [
+    {
+       images : "/emot.webp",
+       alt : "midjourney logo",
+       title: "Midjourney Sharing Account",
+       desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
+       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney",
+	   CTA : "🛒 Buy"
+    },
+    {
+       images : "/gpt.webp",
+       alt : "GPT4",
+       title: "ChatGPT Sharing Account",
+       desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
+       link : "https://sarbeh.com/blog/abstraksi-sheet-umkm",
+	   CTA : "🛒 Buy"
+    },
+    {
+       images : "stock-3.webp",
+       alt : "contoh",
+       title: "Develop Website",
+       desc : "Langkah awal sebelum menggunakan Chat GPT",
+       link : "https://sarbeh.com/blog/panduan-cerdas-menggunakan-chatgpt",
+	   CTA : "🛒 Buy"
+    },
+    {
+       images : "/stock-2.webp",
+       alt : "gambar kertas warna warni",
+       title: "Optimasi SEO",
+       desc : "Belajar terus Belajar",
+       link : "https://sarbeh.com/blog/projek-dan-klien",
+	   CTA : "🛒 Buy"
+    },
+	{
+       images : "/stock-1.webp",
+       alt : "gambar kertas warna warni",
+       title: "Konsultasi Tool Digital",
+       desc : "Belajar terus Belajar",
+       link : "https://sarbeh.com/blog/projek-dan-klien",
+	   CTA : "🛒 Buy"
+
     },
 ]
 ---
 
-<Layout title="Kartu Tahniah.">
+<Layout title="Sarbeh" theme="luxury" favicon="/sarbeh.webp">
 	<main>
 		<Nav 
         src="/sarbeh.webp"
@@ -71,7 +118,8 @@ const dataClient = [
 		tagline= "I am a Passionate Developer who is currently based in Sukoharjo, Indonesia."
         />
 			<Button linkClient={linkClient} />
-			<Catalog Judul="Kitabatii" dataClient={dataClient}/>
+			<Catalog Judul="Bisnisku" Emoj="☎️" dataClient={bisnisClient}/>
+			<Catalog Judul="Kitabatii" Emoj="📚" dataClient={dataClient}/>
 			<p class="text-4 mt-4 text-center">Credit By <a class="font-600 text-gradient" href="https://sarbeh.com">Ibrahim Nurul Huda</a></p>
 
 	</main>

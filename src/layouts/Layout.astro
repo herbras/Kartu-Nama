@@ -2,13 +2,15 @@
 export interface Props {
 	title: string;
 	favicon: string;
+	theme: string;
+
 }
 
-const { title, favicon } = Astro.props;
+const { title, favicon, theme} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme={theme}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -21,8 +23,6 @@ const { title, favicon } = Astro.props;
 	<body>
 		<slot />
 		
-		<p class="text-4 mt-4 text-center">Credit By <a class="font-600 text-gradient" href="https://sarbeh.com">Ibrahim Nurul Huda</a></p>
-
 	</body>
 </html>
 <style is:global>

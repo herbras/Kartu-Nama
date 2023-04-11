@@ -1,30 +1,31 @@
 ---
 export interface Props {
 	Judul : string,
-  dataClient : Array<{images:string, alt:string,title:string, desc:string,link:string}>,
+  Emoj : string,
+  dataClient : Array<{images:string, alt:string,title:string, desc:string,link:string,CTA:string}>,
 }
 
 
-const {Judul, dataClient } = Astro.props;
+const {Judul, dataClient, Emoj } = Astro.props;
 
 
 
 ---
 <div class="p-4 mt-5">
-    <h1 class="card-title text-2xl text-accent-focus font-bold">
+    <h1 class="card-title text-2xl font-bold">
         {Judul}
-        <div class="badge ">📚</div>
+        <div class="badge ">{Emoj}</div>
       </h1>
 <div class="carousel carousel-center w-md md:w-lg p-4 space-x-4 bg-neutral rounded-box mt-2" >
     
     {
-    dataClient.map(({images, alt, title,link})=>
+    dataClient.map(({images, alt, title,link,CTA})=>
     <div class="carousel-item card w-56 bg-base-100 shadow-xl">
         <figure class=""><img src={images} class="object-fit h-56 w-full" alt={alt} /></figure>
         <div class="card-body ">
           <h2 class="card-title">{title}</h2>
           <div class="card-actions justify-end">
-            <a href={link} class="btn btn-primary">Baca</a>
+            <a href={link} class="btn btn-primary">{CTA}</a>
           </div>
         </div>
       </div>
