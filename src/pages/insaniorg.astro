@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import Catalog from '../components/Catalog.astro';
+import Collapse from '../components/Collapse.astro';
+import Hero from '../components/Hero.astro';
+import Nav from '../components/Nav.astro';
+import Socialicon from '../components/Socialicon.astro';
+import Credit from '../components/Credit.astro';
+
+const linkClient = [
+    {
+        nama: 'Langganan YouTube Premium',
+        link: 'https://api.whatsapp.com/send/?phone=6285155167624&text=Hai%2C+Insani%21+Aku+mau+langganan+YouTube+Premium.&type=phone_number&app_absent=0'
+    },{
+        nama: 'Ikut Kajian Ilmu Syariah Malam Sabtu',
+        link: 'https://api.whatsapp.com/send/?phone=6285155167624&text=Hai%2C+Insani%21+Aku+mau+ikut+Kajian+Fikih+Malam+Sabtu.&type=phone_number&app_absent=0'
+    },{
+        nama: 'Kumpulan Rekaman Kajian Ilmu Syariah',
+        link: 'https://www.youtube.com/playlist?list=PLemW4eTW0OIh_clBvH0gfUjATlebhdTcN'
+    },
+    
+]
+
+const dataClient = [
+    {
+       images : "https://snapxcdn.com/d?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Njb250ZW50LmNkbmluc3RhZ3JhbS5jb20vdi90NTEuMjg4NS0xNS8yOTk4MTEzOThfOTkyODI3MDExMzg1NTI0XzgzOTE1MDkyODg5MTMwMTQ4MTZfbi53ZWJwP3N0cD1kc3QtanBnX2UzNV9wNjQweDY0MF9zaDAuMDgmX25jX2h0PXNjb250ZW50LmNkbmluc3RhZ3JhbS5jb20mX25jX2NhdD0xMDAmX25jX29oYz1mMWp6ZEtiem45RUFYOE9MbkMxJmVkbT1BUHMxN0NVQkFBQUEmY2NiPTctNSZvaD0wMF9BZkQ5UHZ1Uk1LRDM4ZzJVc0lYLXlFMjhYMnNSU1JxRXUtdFVJc3NEYlVvUVhnJm9lPTY0MzlFNTFCJl9uY19zaWQ9OTc4Y2I5IiwiZmlsZW5hbWUiOiJTbmFwaW5zdGEuYXBwX3RodW1iXzI5OTgxMTM5OF85OTI4MjcwMTEzODU1MjRfODM5MTUwOTI4ODkxMzAxNDgxNl9uLndlYnAifQ.dfx0hnT6vmlHTQGZYfUhTZTfKKWv-O1ebwQtqNil_Rs",
+       alt : "Event 1",
+       title: "Insani Belajar Muharram",
+       desc : "ini deskripsi",
+       CTA : "Gabung",
+       link : "https://api.whatsapp.com/send/?phone=6285155167624&text=Hai%2C+Insani%21+Aku+mau+ikut+Kajian+Fikih+Malam+Sabtu.&type=phone_number&app_absent=0"
+    },
+    {
+       images : "https://snapxcdn.com/d?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJodHRwczovL3Njb250ZW50LmNkbmluc3RhZ3JhbS5jb20vdi90NTEuMjg4NS0xNS8yOTk0NDY5NzFfNTUzNzQzNjIxMjk0NTcwN18zMjY4NzczNDk3OTE4MzE0NjA5X24ud2VicD9zdHA9ZHN0LWpwZ19lMzVfcDY0MHg2NDBfc2gwLjA4Jl9uY19odD1zY29udGVudC5jZG5pbnN0YWdyYW0uY29tJl9uY19jYXQ9MTA3Jl9uY19vaGM9MTdPd0xkNXdyaklBWF9NWG5JVSZlZG09QVBzMTdDVUJBQUFBJmNjYj03LTUmb2g9MDBfQWZDRTI2ZVQ5TGVpS2tNam4teGZrT3hyM2Q2QjMxZnVCX2hPX1FGMHhac2FxQSZvZT02NDNBNUNGRSZfbmNfc2lkPTk3OGNiOSIsImZpbGVuYW1lIjoiU25hcGluc3RhLmFwcF90aHVtYl8yOTk0NDY5NzFfNTUzNzQzNjIxMjk0NTcwN18zMjY4NzczNDk3OTE4MzE0NjA5X24ud2VicCJ9.3To2sIgWSIYOr3W-KwmHjB63qeGwNnArWz1HhkWxpLI",
+       alt : "contoh",
+       title: "Masa Muda, Masa Merdeka ?",
+       desc : "ini deskripsi",
+       CTA : "Baca",
+       link : "https://www.instagram.com/p/ChWcg7urhR1/"
+    },
+]
+
+const Medsos = [
+    {
+        id :"mdi:youtube",
+		url:"https://www.youtube.com/channel/UCk-kTQmNbbjUtRSMclIiYVg"
+    },
+    {
+        id: "mdi:instagram",
+		url:"https://www.instagram.com/insaniorg/"
+
+    },
+    {
+        id: "ic:baseline-whatsapp",
+		url:"https://api.whatsapp.com/send?phone=6285155167624"
+
+    },
+	{
+        id: "simple-icons:gmail",
+		url:"mailto:insaniorg@gmail.com"
+
+    },
+]
+
+const ytClient = [
+    {
+        id :"kq5dIytVs6c"
+    },
+    {
+        id: "yDgM10mG-2k"
+    }
+]
+
+---
+
+<Layout background="url('/insaniBg.webp')" title="INSANI | Organisasi Filantropi" favicon="/insani.webp" theme="lofi">
+	<main>
+		<Nav 
+        src="/insani.webp"
+		title= 'INSANI | Organisasi Filantropi'
+        text= '~ Membantu sesama manusia dengan kebersamaan.'
+        url= 'https://qlm.one/insaniorg'
+        />
+		<Hero 
+        name= "Insani" 
+		src = "/insani.webp"
+		tagline= "• Sosial - Ideal - Milenial •"
+        />
+        <Socialicon Medsos={Medsos}/>
+
+			<Card />
+			<Button linkClient={linkClient}/>
+			<Catalog Judul="Event Terdekat" Emoj="🌟"  dataClient={dataClient}/>
+			<Collapse dataClient={ytClient}/>
+			
+        <Credit />
+	</main>
+</Layout>
+
+<style>
+    ::root{
+        background-color: black;
+    }
+	main {
+		text-align: left;
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 90ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>

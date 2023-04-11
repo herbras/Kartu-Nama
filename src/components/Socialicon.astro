@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon'
+
+
+export interface Props {
+  Medsos : Array<{id:string, url:string}>,
+}
+
+
+const {Medsos } = Astro.props;
+---
+<div class="flex gap-2 mx-auto w-fit my-5">
+{
+    Medsos.map(({id, url})=>
+    <a
+								class="btn btn-circle "
+								href={url}
+								target="_blank"
+								rel="noopener"
+							>
+                            <Icon name={id} class="w-8" />
+							</a>
+    )
+}</div>
+
+
+

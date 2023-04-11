@@ -21,9 +21,12 @@ const {Judul, dataClient, Emoj } = Astro.props;
     {
     dataClient.map(({images, alt, title,link,CTA})=>
     <div class="carousel-item card w-56 bg-base-100 shadow-xl">
-        <figure class=""><img src={images} class="object-fit h-56 w-full" alt={alt} /></figure>
+      <figure>
+  <img src={images} class="w-full h-auto object-contain object-center" alt={alt} />
+</figure>
+
         <div class="card-body ">
-          <h2 class="card-title">{title}</h2>
+          <h2 class="card-title ">{title}</h2>
           <div class="card-actions justify-end">
             <a href={link} class="btn btn-primary">{CTA}</a>
           </div>

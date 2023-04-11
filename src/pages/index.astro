@@ -6,6 +6,9 @@ import Catalog from '../components/Catalog.astro';
 import Collapse from '../components/Collapse.astro';
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
+import Credit from '../components/Credit.astro';
+
+
 
 const linkClient = [
     {
@@ -55,10 +58,17 @@ const dataClient = [
        CTA : "Tombol CTA"
     },
 ]
-
+const ytClient = [
+    {
+        id :"kq5dIytVs6c"
+    },
+    {
+        id: "yDgM10mG-2k"
+    }
+]
 ---
 
-<Layout title="Al-Qolam" theme="emerald" favicon="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8">
+<Layout title="Al-Qolam"  theme="emerald" favicon="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8">
 	<main>
 		<Nav 
 		src="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8"
@@ -75,8 +85,8 @@ const dataClient = [
 			<Card />
 			<Button linkClient={linkClient}/>
 			<Catalog Judul="Bacaan" Emoj="📚" dataClient={dataClient}/>
-			<Collapse />
-		
+			<Collapse dataClient={ytClient}/>
+			<Credit />
 	</main>
 </Layout>
 
@@ -92,13 +102,7 @@ const dataClient = [
 		font-weight: 800;
 		margin: 0;
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
+	
 	.instructions {
 		line-height: 1.6;
 		margin: 1rem 0;

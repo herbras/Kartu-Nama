@@ -3,10 +3,10 @@ export interface Props {
 	title: string;
 	favicon: string;
 	theme: string;
-
+	background: string;
 }
 
-const { title, favicon, theme} = Astro.props;
+const { title, favicon, theme, background} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,20 +22,23 @@ const { title, favicon, theme} = Astro.props;
 	</head>
 	<body>
 		<slot />
-		
+
 	</body>
 </html>
-<style is:global>
+<style is:global define:vars={{ background}}>
 	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		background: var(--background);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;background-position: center;
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: wheat;
+		
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+	
 </style>

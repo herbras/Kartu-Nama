@@ -1,14 +1,14 @@
 ---
 import { YouTube } from 'astro-embed';
-const dataUser = [
-    {
-        id :"ALckRoqiDz0"
-    },
-    {
-        id: "PBxl84usUzI"
-    }
-]
 
+import { Icon } from 'astro-icon'
+
+export interface Props {
+  dataClient : Array<{id:string}>,
+}
+
+
+const {dataClient } = Astro.props;
 ---
 
   <div class="collapse collapse-arrow ">
@@ -16,13 +16,13 @@ const dataUser = [
     
     <h1 class="collapse-title text-2xl text-accent-focus font-bold">
         Video Bermanfaat
-        <div class="badge badge-secondary ">V3</div>
+        <div class="badge badge-secondary text-l ">👍👍</div>
       </h1>
     
       <div class="collapse-content"> 
         <div class="carousel carousel-center p-4 p-4 space-x-4 bg-neutral rounded-box">
             {
-                dataUser.map(({id})=>
+                dataClient.map(({id})=>
                 <div class="carousel-item card w-96 bg-base-100 shadow-xl">
                 <YouTube id={id} playlabel="Play the video" />
               </div>

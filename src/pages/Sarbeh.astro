@@ -6,6 +6,7 @@ import Catalog from '../components/Catalog.astro';
 import Collapse from '../components/Collapse.astro';
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
+import Credit from '../components/Credit.astro';
 
 const linkClient = [
     {
@@ -104,7 +105,7 @@ const bisnisClient = [
 ]
 ---
 
-<Layout title="Sarbeh" theme="luxury" favicon="/sarbeh.webp">
+<Layout title="Sarbeh" theme="luxury" favicon="/sarbeh.webp" background="black">
 	<main>
 		<Nav 
         src="/sarbeh.webp"
@@ -120,8 +121,8 @@ const bisnisClient = [
 			<Button linkClient={linkClient} />
 			<Catalog Judul="Bisnisku" Emoj="☎️" dataClient={bisnisClient}/>
 			<Catalog Judul="Kitabatii" Emoj="📚" dataClient={dataClient}/>
-			<p class="text-4 mt-4 text-center">Credit By <a class="font-600 text-gradient" href="https://sarbeh.com">Ibrahim Nurul Huda</a></p>
 
+            <Credit />
 	</main>
 </Layout>
 

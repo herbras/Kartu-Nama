@@ -6,6 +6,7 @@ import Catalog from '../components/Catalog.astro';
 import Collapse from '../components/Collapse.astro';
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
+import Credit from '../components/Credit.astro';
 
 const linkClient = [
     {
@@ -55,6 +56,15 @@ const dataClient = [
        CTA : "Tombol CTA"
     },
 ]
+
+const ytClient = [
+    {
+        id :"kq5dIytVs6c"
+    },
+    {
+        id: "yDgM10mG-2k"
+    }
+]
 ---
 
 <Layout title="Finger Coffee">
@@ -73,10 +83,9 @@ const dataClient = [
 		<Card />
 		<Button linkClient={linkClient}/>
 		<Catalog Judul="Bacaan" dataClient={dataClient}/>
-		<Collapse />
+		<Collapse dataClient={ytClient} />
 			
-			<p class="text-4 mt-4 text-center">Credit By <a class="font-600 text-gradient" href="https://sarbeh.com">Ibrahim Nurul Huda</a></p>
-
+		<Credit />
 	</main>
 </Layout>
 
