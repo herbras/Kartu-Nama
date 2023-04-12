@@ -4,9 +4,10 @@ export interface Props {
 	favicon: string;
 	theme: string;
 	background: string;
+	size:string;
 }
 
-const { title, favicon, theme, background} = Astro.props;
+const { title, favicon, theme, background, size} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -25,13 +26,30 @@ const { title, favicon, theme, background} = Astro.props;
 
 	</body>
 </html>
-<style is:global define:vars={{ background}}>
-	:root {
-		background: var(--background);
+<style is:global define:vars={{ background, size}}>
+:root {
+  background: var(--background);
   background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;background-position: center;
-	}
+  background-size: var(--size);
+  background-attachment: fixed;
+  background-position: center;
+
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 	html {
 		font-family: system-ui, sans-serif;
 		
@@ -40,5 +58,8 @@ const { title, favicon, theme, background} = Astro.props;
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
 			Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+
+
+
 	
 </style>

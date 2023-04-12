@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon'
+
 ---
 
 <Layout title="404 Page">
 	<main>
 		<div class="hero min-h-screen bg-base-200">
-			<div class="hero-content flex-col lg:flex-row">
-			  <img src="https://sarbeh.com/assets/potrait.webp" class="max-w-sm rounded-lg shadow-2xl" />
+			<div class="hero-content flex-col lg:flex-row text-center">
+			  <img src="https://sarbeh.com/assets/potrait.webp" class="max-w-sm w-100% rounded-lg shadow-2xl" />
 			  <div>
 				<h1 class="text-3xl font-bold">Hello, my name is</h1>
 				<h2 class="text-5xl  font-bold text-gradient"> Ibrahim Nurul Huda</h2>
@@ -14,8 +16,8 @@ import Layout from '../layouts/Layout.astro';
 
 				<p class="py-6">I am a Passionate Developer who is currently based in Sukoharjo, Indonesia.</p>
 				<p class="pb-6">Hubungi saya jika bisnis anda ingin menggunakan layanan qlm.one</p>
-				<a class="btn btn-primary mb-5">Contact Me</a>
-				<a href="https://www.nihbuatjajan.com/sarbeh" class=""target="_blank"><img src="https://d4xyvrfd64gfm.cloudfront.net/buttons/default-cta.png" alt="Nih buat jajan" style="height: 51px !important;" ></a>
+				<a class="btn btn-green"><Icon name="ic:baseline-whatsapp" class="w-5 mr-5"/>Contact Me</a>
+				<a href="https://www.nihbuatjajan.com/sarbeh" class="btn btn-warning" target="_blank"><Icon name="ant-design:coffee-outlined" class="w-5 mr-5"/>Nih Buat Jajan</a>
 
 			  </div>
 			</div>
@@ -25,21 +27,4 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-	main {
-		text-align: left;
-		margin: auto;
-		padding: 1.5rem;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
 </style>

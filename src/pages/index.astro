@@ -7,23 +7,30 @@ import Collapse from '../components/Collapse.astro';
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
 import Credit from '../components/Credit.astro';
+import Socialicon from '../components/Socialicon.astro';
 
 
 
 const linkClient = [
     {
         nama: 'Website',
-        link: 'sarbeh.com/'
+        link: 'qlm.one/'
     },{
-        nama: 'Portofolio',
-        link: 'sarbeh.com/work/'
+        nama: 'Join Grup WA Ikhwan (Laki-laki)',
+        link: 'chat.whatsapp.com/C0bhUXYKWWi3qsndn3wTqE'
     },{
-        nama: 'Blog',
-        link: 'sarbeh.com/blog/'
+        nama: 'Join Grup WA Akhwat (Perempuan)',
+        link: 'chat.whatsapp.com/Fn5VenOYySWJq7yDnzTQry'
+    },,{
+        nama: 'Channel Telegram',
+        link: 't.me/alqolam_web'
+    },,{
+        nama: 'Wallpaper Nasihat',
+        link: 'drive.google.com/drive/folders/1GIahVK_0HOOT3438iK01c35-EjXD9Dyp'
     },
     {
-        nama: 'Free Assets',
-        link: 't.me/alqolam_web'
+        nama: 'Free Sticker',
+        link: 'sticker.ly/user/alqolam.web'
     },
     
 ]
@@ -66,9 +73,21 @@ const ytClient = [
         id: "yDgM10mG-2k"
     }
 ]
+
+const Medsos = [
+    {
+        id :"ic:baseline-telegram",
+		url:"https://t.me/alqolam_web"
+    },
+    {
+        id: "mdi:instagram",
+		url:"https://www.instagram.com/alqolam.web/"
+
+    },
+]
 ---
 
-<Layout title="Al-Qolam"  theme="emerald" favicon="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8">
+<Layout title="Al-Qolam"  theme="emerald" favicon="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8" size="400% 400%" background="linear-gradient(45deg, #c9e258 20%, #f6eeee 72%)">
 	<main>
 		<Nav 
 		src="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8"
@@ -79,9 +98,10 @@ const ytClient = [
 		<Hero
 		name= "@AlQolam.web" 
 		src = "https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8"
-		tagline= "Tes Tes Tes"
+		tagline= "Muda • Beda • Berguna"
 		
 		/>
+		<Socialicon Medsos={Medsos} />
 			<Card />
 			<Button linkClient={linkClient}/>
 			<Catalog Judul="Bacaan" Emoj="📚" dataClient={dataClient}/>

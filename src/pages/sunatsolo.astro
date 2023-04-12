@@ -1,0 +1,419 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Button from '../components/Button.astro';
+import Catalog from '../components/Catalog.astro';
+import Collapse from '../components/Collapse.astro';
+import Hero from '../components/Hero.astro';
+import Nav from '../components/Nav.astro';
+import Credit from '../components/Credit.astro';
+import Map from '../components/Map.astro';
+import Socialicon from '../components/Socialicon.astro';
+
+const linkClient = [
+    {
+        nama: 'Website',
+        link: 'sunatnyaman.com/'
+    },{
+        nama: 'Reservasi Sunat',
+        link: 'api.whatsapp.com/send/?phone=6282140536672&text=Assalamualaikum,+saya+ingin+konsultasi+khitan'
+    },{
+        nama: 'Blog',
+        link: 'sunatnyaman.com/blog'
+    },
+    {
+        nama: 'Free Assets',
+        link: 't.me/alqolam_web'
+    },
+    
+]
+
+const dataClient = [
+    {
+       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/ramen.webp",
+       alt : "ramen",
+       title: "Asik Belajar Midjourney",
+       desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
+       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney",
+	   CTA : "Read"
+    },
+    {
+       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/laptop.webp",
+       alt : "laptop",
+       title: "Gambaran Sheet UMKM",
+       desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
+       link : "https://sarbeh.com/blog/abstraksi-sheet-umkm",
+	   CTA : "Read"
+    },
+    {
+       images : "https://sarbeh.com/assets/robot.webp",
+       alt : "robot",
+       title: "Panduan Cerdas Chat GPT",
+       desc : "Langkah awal sebelum menggunakan Chat GPT",
+       link : "https://sarbeh.com/blog/panduan-cerdas-menggunakan-chatgpt",
+	   CTA : "Read"
+    },
+    {
+       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/photo-1663630487123-b27d445e8838.webp",
+       alt : "gambar kertas warna warni",
+       title: "Projek dan Klien",
+       desc : "Belajar terus Belajar",
+       link : "https://sarbeh.com/blog/projek-dan-klien",
+	   CTA : "Read"
+    },
+]
+const bisnisClient = [
+    {
+       images : "/emot.webp",
+       alt : "midjourney logo",
+       title: "Midjourney Sharing Account",
+       desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
+       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+tertarik+dengan+Sharing+Akun+Midjourney",
+	   CTA : "🛒 Buy"
+    },
+    {
+       images : "/gpt.webp",
+       alt : "GPT4",
+       title: "ChatGPT Sharing Account",
+       desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
+       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+tertarik+dengan+Sharing+Akun+ChatGPT",
+	   CTA : "🛒 Buy"
+    },
+    {
+       images : "stock-3.webp",
+       alt : "contoh",
+       title: "Develop Website",
+       desc : "Langkah awal sebelum menggunakan Chat GPT",
+       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+kerja+sama+untuk+membuat+projek+web",
+	   CTA : "🛒 Buy"
+    },
+    {
+       images : "/stock-2.webp",
+       alt : "gambar kertas warna warni",
+       title: "Optimasi SEO",
+       desc : "Belajar terus Belajar",
+       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+kerja+sama+untuk+Optimasi+SEO",
+	   CTA : "🛒 Buy"
+    },
+	{
+       images : "/stock-1.webp",
+       alt : "gambar kertas warna warni",
+       title: "Konsultasi Tool Digital",
+       desc : "Belajar terus Belajar",
+       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+konsultasi+alat alat+digital",
+	   CTA : "🛒 Buy"
+
+    },
+]
+
+
+
+const Medsos = [
+    {
+        id: "mdi:instagram",
+		url:"https://www.instagram.com/insaniorg/"
+
+    },
+    {
+        id: "ic:baseline-whatsapp",
+		url:"https://api.whatsapp.com/send?phone=6285155167624"
+
+    }, {
+        id: "ic:outline-facebook",
+		url:"https://web.facebook.com/nurulhudaku"
+
+    },
+	{
+        id: "mdi:map-marker",
+		url:"https://www.google.com/maps/dir//Sunat+Khitan+Modern+Solo,+Jl.+Hamzah+2+No.12,+Dusun+III,+Gumpang,+Kec.+Kartasura,+Kabupaten+Sukoharjo,+Jawa+Tengah+57161/@-7.6306187,110.5052767,11z/data=!4m9!4m8!1m0!1m5!1m1!1s0x2e7a1452c0d89147:0x90f3b1b75b853c76!2m2!1d110.7701705!2d-7.5697364!3e0"
+
+    },]
+---
+
+
+<Layout title="Sunat Khitan Modern Solo" theme="forest" favicon="/sunat1.webp" background="">
+	<main>
+		<Nav 
+        src="/sunat1.webp"
+		title= 'Sunat Khitan Modern Solo'
+        text= 'I am a Passionate Developer who is currently based in Sukoharjo, Indonesia.'
+        url= 'https://qlm.one/sunatsolo'
+        />
+		<Hero 
+        name= "Sunat Khitan Modern Solo" 
+		src = "/sunat1.webp"
+		tagline= "Rumah sunat Solo |  Sunat Nyaman, Anak Ceria "
+        />
+        <Socialicon Medsos={Medsos}/>
+
+			<Button linkClient={linkClient} />
+			<Catalog Judul="Bisnisku" Emoj="☎️" dataClient={bisnisClient}/>
+			<Catalog Judul="Kitabatii" Emoj="📚" dataClient={dataClient}/>
+            <Map />
+
+            <Credit />
+	</main>
+</Layout>
+
+<style>
+	main {
+		text-align: left;
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 90ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
+<script>
+    'use strict';
+
+window.onload = function() {
+  // Globals
+  var random = Math.random
+    , cos = Math.cos
+    , sin = Math.sin
+    , PI = Math.PI
+    , PI2 = PI * 2
+    , timer = undefined
+    , frame = undefined
+    , confetti = [];
+
+  var particles = 10
+    , spread = 40
+    , sizeMin = 3
+    , sizeMax = 12 - sizeMin
+    , eccentricity = 10
+    , deviation = 100
+    , dxThetaMin = -.1
+    , dxThetaMax = -dxThetaMin - dxThetaMin
+    , dyMin = .13
+    , dyMax = .18
+    , dThetaMin = .4
+    , dThetaMax = .7 - dThetaMin;
+
+  var colorThemes = [
+    function() {
+      return color(200 * random()|0, 200 * random()|0, 200 * random()|0);
+    }, function() {
+      var black = 200 * random()|0; return color(200, black, black);
+    }, function() {
+      var black = 200 * random()|0; return color(black, 200, black);
+    }, function() {
+      var black = 200 * random()|0; return color(black, black, 200);
+    }, function() {
+      return color(200, 100, 200 * random()|0);
+    }, function() {
+      return color(200 * random()|0, 200, 200);
+    }, function() {
+      var black = 256 * random()|0; return color(black, black, black);
+    }, function() {
+      return colorThemes[random() < .5 ? 1 : 2]();
+    }, function() {
+      return colorThemes[random() < .5 ? 3 : 5]();
+    }, function() {
+      return colorThemes[random() < .5 ? 2 : 4]();
+    }
+  ];
+  function color(r, g, b) {
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+  }
+
+  // Cosine interpolation
+  function interpolation(a, b, t) {
+    return (1-cos(PI*t))/2 * (b-a) + a;
+  }
+
+  // Create a 1D Maximal Poisson Disc over [0, 1]
+  var radius = 1/eccentricity, radius2 = radius+radius;
+  function createPoisson() {
+    // domain is the set of points which are still available to pick from
+    // D = union{ [d_i, d_i+1] | i is even }
+    var domain = [radius, 1-radius], measure = 1-radius2, spline = [0, 1];
+    while (measure) {
+      var dart = measure * random(), i, l, interval, a, b, c, d;
+
+      // Find where dart lies
+      for (i = 0, l = domain.length, measure = 0; i < l; i += 2) {
+        a = domain[i], b = domain[i+1], interval = b-a;
+        if (dart < measure+interval) {
+          spline.push(dart += a-measure);
+          break;
+        }
+        measure += interval;
+      }
+      c = dart-radius, d = dart+radius;
+
+      // Update the domain
+      for (i = domain.length-1; i > 0; i -= 2) {
+        l = i-1, a = domain[l], b = domain[i];
+        // c---d          c---d  Do nothing
+        //   c-----d  c-----d    Move interior
+        //   c--------------d    Delete interval
+        //         c--d          Split interval
+        //       a------b
+        if (a >= c && a < d)
+          if (b > d) domain[l] = d; // Move interior (Left case)
+          else domain.splice(l, 2); // Delete interval
+        else if (a < c && b > c)
+          if (b <= d) domain[i] = c; // Move interior (Right case)
+          else domain.splice(i, 0, c, d); // Split interval
+      }
+
+      // Re-measure the domain
+      for (i = 0, l = domain.length, measure = 0; i < l; i += 2)
+        measure += domain[i+1]-domain[i];
+    }
+
+    return spline.sort();
+  }
+
+  // Create the overarching container
+  var container = document.createElement('div');
+  container.style.position = 'fixed';
+  container.style.top      = '0';
+  container.style.left     = '0';
+  container.style.width    = '100%';
+  container.style.height   = '0';
+  container.style.overflow = 'visible';
+  container.style.zIndex   = '9999';
+
+  // Confetto constructor
+  function Confetto(theme) {
+    this.frame = 0;
+    this.outer = document.createElement('div');
+    this.inner = document.createElement('div');
+    this.outer.appendChild(this.inner);
+
+    var outerStyle = this.outer.style, innerStyle = this.inner.style;
+    outerStyle.position = 'absolute';
+    outerStyle.width  = (sizeMin + sizeMax * random()) + 'px';
+    outerStyle.height = (sizeMin + sizeMax * random()) + 'px';
+    innerStyle.width  = '100%';
+    innerStyle.height = '100%';
+    innerStyle.backgroundColor = theme();
+
+    outerStyle.perspective = '50px';
+    outerStyle.transform = 'rotate(' + (360 * random()) + 'deg)';
+    this.axis = 'rotate3D(' +
+      cos(360 * random()) + ',' +
+      cos(360 * random()) + ',0,';
+    this.theta = 360 * random();
+    this.dTheta = dThetaMin + dThetaMax * random();
+    innerStyle.transform = this.axis + this.theta + 'deg)';
+
+    this.x = window.innerWidth * random();
+    this.y = -deviation;
+    this.dx = sin(dxThetaMin + dxThetaMax * random());
+    this.dy = dyMin + dyMax * random();
+    outerStyle.left = this.x + 'px';
+    outerStyle.top  = this.y + 'px';
+
+    // Create the periodic spline
+    this.splineX = createPoisson();
+    this.splineY = [];
+    for (var i = 1, l = this.splineX.length-1; i < l; ++i)
+      this.splineY[i] = deviation * random();
+    this.splineY[0] = this.splineY[l] = deviation * random();
+
+    this.update = function(height, delta) {
+      this.frame += delta;
+      this.x += this.dx * delta;
+      this.y += this.dy * delta;
+      this.theta += this.dTheta * delta;
+
+      // Compute spline and convert to polar
+      var phi = this.frame % 7777 / 7777, i = 0, j = 1;
+      while (phi >= this.splineX[j]) i = j++;
+      var rho = interpolation(
+        this.splineY[i],
+        this.splineY[j],
+        (phi-this.splineX[i]) / (this.splineX[j]-this.splineX[i])
+      );
+      phi *= PI2;
+
+      outerStyle.left = this.x + rho * cos(phi) + 'px';
+      outerStyle.top  = this.y + rho * sin(phi) + 'px';
+      innerStyle.transform = this.axis + this.theta + 'deg)';
+      return this.y > height+deviation;
+    };
+  }
+
+  function poof() {
+    if (!frame) {
+      // Append the container
+      document.body.appendChild(container);
+
+      // Add confetti
+      var theme = colorThemes[0]
+        , count = 0;
+      (function addConfetto() {
+        var confetto = new Confetto(theme);
+        confetti.push(confetto);
+        container.appendChild(confetto.outer);
+        timer = setTimeout(addConfetto, spread * random());
+      })(0);
+
+      // Start the loop
+      var prev = undefined;
+      requestAnimationFrame(function loop(timestamp) {
+        var delta = prev ? timestamp - prev : 0;
+        prev = timestamp;
+        var height = window.innerHeight;
+
+        for (var i = confetti.length-1; i >= 0; --i) {
+          if (confetti[i].update(height, delta)) {
+            container.removeChild(confetti[i].outer);
+            confetti.splice(i, 1);
+          }
+        }
+
+        if (timer || confetti.length)
+          return frame = requestAnimationFrame(loop);
+
+        // Cleanup
+        document.body.removeChild(container);
+        frame = undefined;
+      });
+    }
+  }
+
+  poof();
+};
+
+</script>
