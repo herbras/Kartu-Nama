@@ -9,6 +9,7 @@ import Nav from '../components/Nav.astro';
 import Credit from '../components/Credit.astro';
 import Map from '../components/Map.astro';
 import Socialicon from '../components/Socialicon.astro';
+import CTA from '../components/CTA.astro';
 
 const linkClient = [
     {
@@ -21,87 +22,85 @@ const linkClient = [
         nama: 'Blog',
         link: 'sunatnyaman.com/blog'
     },
-    {
-        nama: 'Free Assets',
-        link: 't.me/alqolam_web'
-    },
+    
     
 ]
 
-const dataClient = [
-    {
-       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/ramen.webp",
-       alt : "ramen",
-       title: "Asik Belajar Midjourney",
-       desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
-       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney",
-	   CTA : "Read"
-    },
-    {
-       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/laptop.webp",
+const bisnisClient = [
+{
+       images : "/2.webp",
        alt : "laptop",
-       title: "Gambaran Sheet UMKM",
+       title: "Sunat Tanpa Jarum Suntik",
        desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
        link : "https://sarbeh.com/blog/abstraksi-sheet-umkm",
-	   CTA : "Read"
+	   CTA : "Konsultasi"
     },
     {
-       images : "https://sarbeh.com/assets/robot.webp",
+       images : "/1.webp",
+       alt : "Metode Super Ring",
+       title: "Metode Super Ring",
+       desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
+       link : "https://sarbeh.com/blog/cara-asik-belajar-midjourney",
+	   CTA : "Konsultasi"
+    },
+    
+    {
+       images : "3.webp",
        alt : "robot",
-       title: "Panduan Cerdas Chat GPT",
+       title: "Metode Laser",
        desc : "Langkah awal sebelum menggunakan Chat GPT",
        link : "https://sarbeh.com/blog/panduan-cerdas-menggunakan-chatgpt",
-	   CTA : "Read"
+	   CTA : "Konsultasi"
     },
     {
-       images : "https://assets.tina.io/d614aee4-9b02-4c95-9fc4-7b542014dd95/photo-1663630487123-b27d445e8838.webp",
-       alt : "gambar kertas warna warni",
-       title: "Projek dan Klien",
+       images : "4.webp",
+       alt : "Metode Tekno Sealer",
+       title: "Metode Tekno Sealer",
        desc : "Belajar terus Belajar",
        link : "https://sarbeh.com/blog/projek-dan-klien",
-	   CTA : "Read"
+	   CTA : "Konsultasi"
     },
 ]
-const bisnisClient = [
+const dataClient = [
     {
-       images : "/emot.webp",
-       alt : "midjourney logo",
-       title: "Midjourney Sharing Account",
+       images : "https://www.sunatnyaman.com/assets/03.8304cc18_ZmeNme.avif",
+       alt : "Jagoan Sunat",
+       title: "Jagoan Sunat",
        desc : "Kali ini kita bakal ngobrolin soal Midjourney dari basic-basic",
-       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+tertarik+dengan+Sharing+Akun+Midjourney",
-	   CTA : "🛒 Buy"
+       link : "https://www.google.com/maps/place/Sunat+Khitan+Modern+Solo/@-7.6306187,110.5052767,11z/data=!4m8!3m7!1s0x2e7a1452c0d89147:0x90f3b1b75b853c76!8m2!3d-7.5697311!4d110.7701403!9m1!1b1!16s%2Fg%2F11fnq3y4tx",
+	   CTA : "Review Google"
     },
     {
-       images : "/gpt.webp",
-       alt : "GPT4",
-       title: "ChatGPT Sharing Account",
+       images : "https://www.sunatnyaman.com/assets/02.156d548f_Z1S7tGe.avif",
+       alt : "Jagoan Sunat",
+       title: "Jagoan Sunat",
        desc : "Apa aja sih yang dibutuhin untuk mbuat catatan keuangan UMKM ? cek disini",
-       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+tertarik+dengan+Sharing+Akun+ChatGPT",
-	   CTA : "🛒 Buy"
+       link : "https://www.google.com/maps/place/Sunat+Khitan+Modern+Solo/@-7.6306187,110.5052767,11z/data=!4m8!3m7!1s0x2e7a1452c0d89147:0x90f3b1b75b853c76!8m2!3d-7.5697311!4d110.7701403!9m1!1b1!16s%2Fg%2F11fnq3y4tx",
+	   CTA : "Review Google"
     },
     {
-       images : "stock-3.webp",
-       alt : "contoh",
-       title: "Develop Website",
+       images : "https://www.sunatnyaman.com/assets/01.93d69a55_We7h3.avif",
+       alt : "Jagoan Sunat",
+       title: "Jagoan Sunat",
        desc : "Langkah awal sebelum menggunakan Chat GPT",
-       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+kerja+sama+untuk+membuat+projek+web",
-	   CTA : "🛒 Buy"
+       link : "https://www.google.com/maps/place/Sunat+Khitan+Modern+Solo/@-7.6306187,110.5052767,11z/data=!4m8!3m7!1s0x2e7a1452c0d89147:0x90f3b1b75b853c76!8m2!3d-7.5697311!4d110.7701403!9m1!1b1!16s%2Fg%2F11fnq3y4tx",
+	   CTA : "Review Google"
     },
     {
-       images : "/stock-2.webp",
-       alt : "gambar kertas warna warni",
-       title: "Optimasi SEO",
+       images : "https://www.sunatnyaman.com/assets/Sunat%20Tanpa%20Jarum%20Suntik%20Jagoan.f5110d29_1r6NcM.jpg",
+       alt : "Jagoan Sunat",
+       title: "Jagoan Sunat",
        desc : "Belajar terus Belajar",
-       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+kerja+sama+untuk+Optimasi+SEO",
-	   CTA : "🛒 Buy"
+       link : "https://www.google.com/maps/place/Sunat+Khitan+Modern+Solo/@-7.6306187,110.5052767,11z/data=!4m8!3m7!1s0x2e7a1452c0d89147:0x90f3b1b75b853c76!8m2!3d-7.5697311!4d110.7701403!9m1!1b1!16s%2Fg%2F11fnq3y4tx",
+	   CTA : "Review Google"
     },
 	{
-       images : "/stock-1.webp",
-       alt : "gambar kertas warna warni",
-       title: "Konsultasi Tool Digital",
+       images : "https://www.sunatnyaman.com/assets/Jagoan%20Sunat.aa5b79c5_Z2i2EvS.png",
+       alt : "Jagoan Sunat",
+       title: "Jagoan Sunat",
        desc : "Belajar terus Belajar",
-       link : "https://api.whatsapp.com/send/?phone=6285156552604&text=Assalamualaikum,+saya+ingin+konsultasi+alat alat+digital",
-	   CTA : "🛒 Buy"
+       link : "https://www.google.com/maps/place/Sunat+Khitan+Modern+Solo/@-7.6306187,110.5052767,11z/data=!4m8!3m7!1s0x2e7a1452c0d89147:0x90f3b1b75b853c76!8m2!3d-7.5697311!4d110.7701403!9m1!1b1!16s%2Fg%2F11fnq3y4tx",
+	   CTA : "Review Google"
 
     },
 ]
@@ -131,7 +130,7 @@ const Medsos = [
 ---
 
 
-<Layout title="Sunat Khitan Modern Solo" theme="forest" favicon="/sunat1.webp" background="">
+<Layout  title="Sunat Khitan Modern Solo" theme="forest" favicon="/sunat1.webp" size="400% 400%" background="linear-gradient(45deg, black 20%, #84cc16 72%)">
 	<main>
 		<Nav 
         src="/sunat1.webp"
@@ -145,10 +144,10 @@ const Medsos = [
 		tagline= "Rumah sunat Solo |  Sunat Nyaman, Anak Ceria "
         />
         <Socialicon Medsos={Medsos}/>
-
+<CTA />
 			<Button linkClient={linkClient} />
-			<Catalog Judul="Bisnisku" Emoj="☎️" dataClient={bisnisClient}/>
-			<Catalog Judul="Kitabatii" Emoj="📚" dataClient={dataClient}/>
+			<Catalog Judul="Metode Sunat" Emoj="☎️" dataClient={bisnisClient}/>
+			<Catalog Judul="Pasien Puas" Emoj="😄😄" dataClient={dataClient}/>
             <Map />
 
             <Credit />
