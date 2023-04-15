@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Catalog from "../components/Catalog.astro";
+import Collapse from "../components/Collapse.astro";
+import Hero from "../components/Hero.astro";
+import Nav from "../components/Nav.astro";
+import Credit from "../components/Credit.astro";
+import Socialicon from "../components/Socialicon.astro";
+
+const linkClient = [
+  {
+    nama: "Website",
+    link: "https://banglele.co.id/",
+  },
+  {
+    nama: "Whatsapp in English",
+    link: "wa.me/62819818001",
+  },
+  {
+    nama: "Whatsapp in Arabic",
+    link: "wa.me/62819818007",
+  },
+  {
+    nama: "English Fanspage",
+    link: "www.facebook.com/banglele.co.id",
+  },
+  ,
+  {
+    nama: "Arabic Fanspage",
+    link: "www.facebook.com/banglelearabic",
+  },
+  ,
+  {
+    nama: "Indonesian Fanpage",
+    link: "www.facebook.com/banglele.indonesia",
+  },
+  {
+    nama: "AQUACULTURE BY BANGLELE INDONESIA | FACEBOOK",
+    link: "www.facebook.com/groups/www.banglele.co.id/",
+  },
+];
+
+const dataClient = [
+  {
+    images: "/stock-1.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-2.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-3.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-4.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+];
+
+
+const Medsos = [
+  {
+    id: "ic:baseline-whatsapp",
+    url: "https://api.whatsapp.com/send/?phone=62819818001&text&type=phone_number&app_absent=0",
+  },
+  {
+    id: "ic:baseline-facebook",
+    url: "https://www.facebook.com/banglele.co.id",
+  },
+  {
+    id: "mdi:instagram",
+    url: "https://www.instagram.com/banglele_english",
+  },
+  {
+    id: "mdi:twitter",
+    url: "https://twitter.com/bangleleenglish",
+  },
+  
+];
+---
+
+<Layout
+  title="Al-Qolam"
+  theme="emerald"
+  favicon="./banglele.webp"
+  analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}'
+  size="400% 400%"
+  background="#FCCF00"
+>
+  <main>
+    <Nav
+      src="./banglele.webp"
+      title="Al-Qolam"
+      text="Kumpulan link Bermanfaat Al-Qolam"
+      url="https://qlm.one/"
+    />
+    <Hero
+      name="PT BANGLELE INDONESIA MAJU"
+      src="./banglele.webp"
+      tagline="Connecting farmers for better Indonesia"
+    />
+    <Socialicon Medsos={Medsos} />
+    <Button linkClient={linkClient} />
+
+    <Credit />
+  </main>
+</Layout>
+
+<style>
+  main {
+    text-align: left;
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 90ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+  .instructions code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+</style>
