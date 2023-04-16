@@ -8,57 +8,38 @@ import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
 import Credit from '../components/Credit.astro';
 import Socialicon from '../components/Socialicon.astro';
+import Qna from '../components/Qna.astro';
 
 
 
 const linkClient = [
     {
         nama: 'Website',
-        link: 'qlm.one/'
+        link: 'https://psb.alhassan.sch.id/'
     },{
-        nama: 'Join Grup WA Ikhwan (Laki-laki)',
-        link: 'chat.whatsapp.com/C0bhUXYKWWi3qsndn3wTqE'
-    },{
-        nama: 'Join Grup WA Akhwat (Perempuan)',
-        link: 'chat.whatsapp.com/Fn5VenOYySWJq7yDnzTQry'
-    },,{
-        nama: 'Channel Telegram',
-        link: 't.me/alqolam_web'
-    },,{
-        nama: 'Wallpaper Nasihat',
-        link: 'drive.google.com/drive/folders/1GIahVK_0HOOT3438iK01c35-EjXD9Dyp'
-    },
-    {
-        nama: 'Free Sticker',
-        link: 'sticker.ly/user/alqolam.web'
-    },
+        nama: 'pertanyaan Seputar Pendaftaran',
+        link: 'https://alhassan.sch.id/posts/FnWJbthwc3t7a5rCFQCC'
+    }
     
 ]
 
 const dataClient = [
     {
-       images : "/stock-1.webp",
+       images : "/ltq al-hassan.webp",
        alt : "contoh",
        title: "Ini Gambar",
        desc : "ini deskripsi",
        CTA : "Tombol CTA"
     },
     {
-       images : "/stock-2.webp",
+       images : "/pesan.webp",
        alt : "contoh",
        title: "Ini Gambar",
        desc : "ini deskripsi",
        CTA : "Tombol CTA"
     },
     {
-       images : "/stock-3.webp",
-       alt : "contoh",
-       title: "Ini Gambar",
-       desc : "ini deskripsi",
-       CTA : "Tombol CTA"
-    },
-    {
-       images : "/stock-4.webp",
+       images : "/kesan.webp",
        alt : "contoh",
        title: "Ini Gambar",
        desc : "ini deskripsi",
@@ -66,12 +47,15 @@ const dataClient = [
     },
 ]
 const ytClient = [
-    {
-        id :"kq5dIytVs6c"
+	{judul: "Wisuda santri Akhir ppm alhassan angkatn 10 putra dan angkatn 2 putri",
+        id: "rxGuNsI4fYk"
     },
-    {
-        id: "yDgM10mG-2k"
-    }
+    {judul: "Wisuda santri Akhir ppm alhassan angkatn 10 putra dan angkatn 2 putri",
+        id :"5gL44s4Nujk"
+    },{judul: "Wisuda santri Akhir ppm alhassan angkatn 10 putra dan angkatn 2 putri",
+		id: "ufqj_Svdx1U"
+	},
+    
 ]
 
 const Medsos = [
@@ -87,24 +71,28 @@ const Medsos = [
 ]
 ---
 
-<Layout title="Al-Qolam"  theme="emerald" favicon="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8" 
+<Layout title="Al-Hassan"  theme="emerald" favicon="./alhassan.webp" 
 analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}' size="400% 400%" background="linear-gradient(45deg, #c9e258 20%, #f6eeee 72%)">
 	<main>
 		<Nav 
-		src="https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8"
-		title= 'Al-Qolam'
+		src="./alhassan.webp"
+		title= 'Al-Hassan'
         text= 'Kumpulan link Bermanfaat Al-Qolam'
         url= 'https://kartu.sarbeh.com'
 		/>
 		<Hero
-		name= "@AlQolam.web" 
-		src = "https://d1fdloi71mui9q.cloudfront.net/fjZlMj4yQyyWuGyjQhXb_0QlEHPrsyjMfl1i8"
+		name= "Al-Hassan" 
+		src = "./alhassan.webp"
 		tagline= "Muda • Beda • Berguna"
-		
+
 		/>
 		<Socialicon Medsos={Medsos} />
 			<Card />
 			<Button linkClient={linkClient}/>
+			<Catalog Judul="Kitabatii" Emoj="📚" dataClient={dataClient}/>
+
+			<Qna />
+<Collapse dataClient={ytClient}/>
 			<Credit />
 	</main>
 </Layout>

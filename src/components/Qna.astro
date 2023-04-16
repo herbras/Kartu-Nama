@@ -1,0 +1,110 @@
+---
+import { Icon } from 'astro-icon'
+
+const qna = [
+{
+Qn: "Untuk Pesantren Alhassan Mazhab apa yang dianut disana?",
+An: "Mazhab kami Ahlusunnah waljama’ah. Artinya menerima semua santri dari semua kalangan seperti NU, Muhammadiyah, PERSIS, dan lain-lain. Dan pesantren Al-Hassan tidak memperkenankan segala atribut partai untuk masuk ke dalam lingkungan pesantren karena tujuan kamu adalah membentuk kader Da’i yang mampu menjadi perekat semua umat islam dari semua golongan."
+},
+{
+Qn: "Apakah di pesantren Al-Hassan diperbolehkan tindakan kekerasan baik dalam hukuman ataupun lainnya?",
+An: "Al-Hassan tidak memperbolehkan segala bentuk kekerasan, jika ada yang melakukan ini maka akan mendapat hukuman yang tegas. Di Al-Hassan semua hukuman harus bersifat edukatif dan tidak melebihi batas."
+},
+{
+Qn: "Biaya bulanan (SMPIT) berapa dan untuk apa saja?",
+An: "Biaya bulanan Rp 1.750.000, dengan perincian untuk SPP dan makan sehari tiga kali selama sebulan. Jika ikut loundry maka ada tambahan biaya sebesar Rp 120.000 perbulan."
+},
+{
+Qn: "Untuk pendaftaran apakah anak yang bersangkutan harus diajak?",
+An: "Calon santri yang mendaftar tidak harus datang langsung."
+},
+{
+Qn: "Apa yang harus kami lakukan setelah mendaftar secara online?",
+An: "Silakan kunjungi link ini https://psb.alhassan.sch.id untuk lebih jelasnya."
+},
+{
+Qn: "Test hafalan Al Qur’an sampai surat surat apa saja?",
+An: "Tidak ada tes hafalan Qur’an. Calon santri hanya dites bacaan qur’an saja. Adapun hapalan hanya sebagai tambahan saja."
+},
+{
+Qn: "Berapa hafalan yang wajib dihafal oleh santri?",
+An: "Untuk SMPIT adalah 5 juz, dari juz 30 sampai juz 26. Untuk Madrasah Aliyah 5 juz, dari juz 1 sampai juz 5."
+},
+{
+Qn: "Apakah keunggulan pesantren Al Hassan?",
+An: "- Program tahfizh 30 juz, bahasa arab intensif.\n- SMPIT dan MADRSAH ALIYAH ter-akreditasi A."
+},
+{
+Qn: "Apa sajakah ekstrakurikuler di pesantren Al Hassan?",
+An: "Kepramukaan, Pidato 3 bahasa (Indonesia, Arab, Inggris), Futsal, Jurnalistik, Basket, Volly, Badminton, Kesenian, Pantomim, Nasyid, Marawis, Tennis Meja, Dll."
+},
+{
+Qn: "Apakah kamar kelas 1, 2, 3 ; SMPIT, SMAIT dipisah?",
+An: "Untuk kelas satu dipisah dengan kelas 2 dan 3 dikarenakan kelas 2 dan 3 sudah wajib memakai bahasa arab atau inggris."
+},
+{
+Qn: "Satu kamar berapa orang?",
+An: "Bentuk kamarnya adalah asrama dengan luas ± 8×9 m2 dengan kapasitas 15 – 20 orang."
+},
+{
+Qn: "Untuk pencapaian kompetensi bahasa internasional, kualifikasi guru-gurunya darimana lulusannya dan berapa persen yang aktif berbahasa asing?",
+An: "Tingkat pendidikan dewan guru adalah dari S1 – S3 dari universitas luar negeri seperti madinah, Al-Azhar Cairo, Univ. Damascus syria, Lybia dll, ataupun universitas dalam negeri seperti LIPIA, UIN, IPB, UI dll. Hampir 90 % mampu berbahasa Arab aktif."
+},
+{
+Qn: "Mungkinkah dari sekolah umum bisa masuk Pesantren Alhassan?",
+An: "Tentu saja bisa selama tekadnya adalah menjadi manusia yang memahami agamanya dan kurikulum pesantren diperuntukkan untuk santri yang dari tidak bisa menjadi bisa. Hanya sekali lagi kemauan yang keras dan konsistensi menambah kecepatan penguasaan bahasa arab."
+},
+{
+Qn: "Apa saja yang harus dipersiapkan dalam beberapa bulan ini agar bisa mengikuti tes masuk Pesantren Alhassan?",
+An: "Yang harus disiapkan adalah bacaan qur’an , praktek ibadah dari bacaan sholat dan wudhu, do’a –do’a umum serta tes tulis yang terdiri dari matematika dan PAI yang sudah diajarkan di SD."
+},
+{
+Qn: "Kami sedang mencari pesantren buat putri kami?",
+An: "Alhamdulillah untuk tahun ajaran 2020 – 2021 sudah dibuka pendaftaran santri putri untuk tingkat SMP dan Aliyah."
+},
+{
+Qn: "Untuk kenaikan kelas, biaya apa saja yang harus dipersiapkan? Apakah ini dibayar per tahun? Apakah tabungan wajib juga per tahun?",
+An: "Biaya daftar ulang dibayarkan setiap kenaikan kelas yaitu untuk kegiatan pesantren selama 1 tahun,seperti ujian semester, buku pegangan , ekstrakurikuler, tahfidz dan tahsin alqur’an,kesehatan dll."
+},
+{
+Qn: "Kapankah santri diperbolehkan izin keluar pesantren?",
+An: "Pesantren hanya memberikan perizinan untuk keluar pesantren hanya 1x dalam sebulan, yaitu di pekan pertama atau pekan ketiga."
+}
+]
+---
+<h3 class="text-md font-bold">
+    TANYA JAWAB TENTANG PSB DAN PESANTREN
+</h3>
+{
+    qna.map(({Qn, An})=>
+    <div class="chat chat-start">
+    <div class="chat-image avatar">
+      <div class="w-10 rounded-full">
+        <img src="./alhassan.webp" />
+      </div>
+    </div>
+    <div class="chat-header">
+      Panitia PSB Al-Hassan
+      <time class="text-xs opacity-50">08:59</time>
+    </div>
+    <div class="chat-bubble">{Qn}</div>
+    <div class="chat-footer opacity-50">
+      Delivered
+    </div>
+  </div>
+  <div class="chat chat-end">
+    <div class="chat-image avatar">
+      <div class="w-10 bg-white rounded-full">
+        <Icon name="mdi:user"    />
+      </div>
+    </div>
+    <div class="chat-header">
+      Orang tua Santri
+      <time class="text-xs opacity-50">09:00</time>
+    </div>
+    <div class="chat-bubble">{An}</div>
+    <div class="chat-footer opacity-50">
+      Seen at 09:00
+    </div>
+  </div>
+)}

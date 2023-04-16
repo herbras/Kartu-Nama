@@ -4,7 +4,7 @@ import { YouTube } from 'astro-embed';
 import { Icon } from 'astro-icon'
 
 export interface Props {
-  dataClient : Array<{id:string}>,
+  dataClient : Array<{id:string, judul:string}>,
 }
 
 
@@ -22,9 +22,10 @@ const {dataClient } = Astro.props;
       <div class="collapse-content"> 
         <div class="carousel carousel-center p-4 p-4 space-x-4 bg-neutral rounded-box">
             {
-                dataClient.map(({id})=>
-                <div class="carousel-item card w-96 bg-base-100 shadow-xl">
-                <YouTube id={id} playlabel="Play the video" />
+                dataClient.map(({id,judul})=>
+                <div class="carousel-item card w-96 bg-base-100 shadow-xl text-center">
+                
+                <YouTube id={id} playlabel="Play the video" /><p class="text-xl">{judul}</p>
               </div>
                 )
             }
