@@ -88,15 +88,16 @@ import { Icon } from "astro-icon";
       const companyName = "PT BANGLELE INDONESIA MAJU";
       const website = "https://qlm.one/banglele";
 
-      const vCardData = `BEGIN:VCARD
-        VERSION:3.0
-        N:${lastName};${firstName};;;
-        ORG:${companyName}
-        URL:${website}
-        EMAIL:official@banglele.co.id
-        TEL;TYPE=CELL:62819818001
-        ADR;TYPE=WORK:;;Jl. Raya Pandau Permai, Blok A8 No. 7, Pandau Jaya, Siak Hulu, Riau, Indonesia, 28452
-        END:VCARD`;
+      const vCardData = 
+`BEGIN:VCARD
+VERSION:3.0
+N:${lastName};${firstName};;;
+ORG:${companyName}
+URL:${website}
+EMAIL:official@banglele.co.id
+TEL;TYPE=CELL:62819818001
+ADR;TYPE=WORK:;;Jl. Raya Pandau Permai, Blok A8 No. 7, Pandau Jaya, Siak Hulu, Riau, Indonesia, 28452
+END:VCARD`;
 
       const vCardBlob = new Blob([vCardData], { type: "text/vcard" });
       const vCardURL = URL.createObjectURL(vCardBlob);
