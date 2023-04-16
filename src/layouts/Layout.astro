@@ -47,15 +47,10 @@ const { title, favicon, theme, background, size, analitis, pixel } = Astro.props
 </html>
 <style is:global define:vars={{ background, size}}>
 :root {
-	
-
   background: var(--background);
   background-repeat: no-repeat;
   background-size: var(--size);
-  background-attachment: fixed;
-  background-position: center;
-
-  animation: gradient 15s ease infinite;
+ 
 }
 
 @keyframes gradient {

@@ -20,7 +20,7 @@ const qna = [
   },
   {
     Qn: "Apa yang harus kami lakukan setelah mendaftar secara online?",
-    An: "Silakan kunjungi link ini https://psb.alhassan.sch.id untuk lebih jelasnya.",
+    An: "Untuk pendaftaran Santri Putra Silakan hubungi Ust Adi 𝟬𝟴𝟭𝟯-𝟴𝟯𝟯𝟴-𝟮𝟯𝟵𝟵. Untuk Santri Putri Ust Mahmud 𝟬𝟴𝟭𝟯-𝟴𝟱𝟬𝟳-𝟲𝟰𝟱𝟰",
   },
   {
     Qn: "Test hafalan Al Qur’an sampai surat surat apa saja?",
@@ -32,7 +32,7 @@ const qna = [
   },
   {
     Qn: "Apakah keunggulan pesantren Al Hassan?",
-    An: "- Program tahfizh 30 juz, bahasa arab intensif.\n- SMPIT dan MADRSAH ALIYAH ter-akreditasi A.",
+    An: "3️⃣0️⃣ Program tahfizh 30 juz, bahasa arab intensif. 🌟 SMPIT dan MADRSAH ALIYAH ter-akreditasi A.",
   },
   {
     Qn: "Apa sajakah ekstrakurikuler di pesantren Al Hassan?",
@@ -68,7 +68,7 @@ const qna = [
   },
   {
     Qn: "Kapankah santri diperbolehkan izin keluar pesantren?",
-    An: "Pesantren hanya memberikan perizinan untuk keluar pesantren hanya 1x dalam sebulan, yaitu di pekan pertama atau pekan ketiga.",
+    An: "Pesantren hanya memberikan perizinan untuk keluar pesantren hanya sekali dalam sebulan, yaitu di pekan pertama atau pekan ketiga.",
   },
 ];
 ---
@@ -77,15 +77,15 @@ const qna = [
 <div class="collapse collapse-arrow " id="#QnA">
   <input type="checkbox" /> 
   
-  <h1 class="collapse-title btn btn-block text-2xl  font-bold">
+  <h1 class="collapse-title btn btn-block text-md md:text-2xl  font-bold">
     TANYA JAWAB TENTANG PSB DAN PESANTREN
     </h1>
   
-    <div class="collapse-content"> 
+    <div class="collapse-content glass rounded-md"> 
       {
         qna.map(({ Qn, An }) => (
           <>
-            <div class="chat chat-start">
+            <div class="chat mt-5 chat-start">
               <div class="chat-image avatar ">
                 <div class="w-10 rounded-full">
                   <Icon name="mdi:user" />

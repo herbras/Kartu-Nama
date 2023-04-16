@@ -3,9 +3,10 @@ export interface Props {
 	name: string;
 	src : string;
   tagline: string;
+  tagline2: string;
 }
 
-const { name, src, tagline} = Astro.props;
+const { name, src, tagline, tagline2} = Astro.props;
 
 ---
 <div class="mx-auto w-fit text-center mt-12">
@@ -15,5 +16,6 @@ const { name, src, tagline} = Astro.props;
         </div>
       </div>
       <h1 class="text-3xl text-lime-focus font-bold">{name}</h1>
-      <h1 class="text-md text-lime-focus font-bold">{tagline}</h1>
+      <h2 class="text-xl text-lime-focus font-bold">{tagline}</h2>
+      <h3 class="text-md text-lime-focus font-bold">{tagline2}</h3>
 </div>

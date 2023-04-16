@@ -10,6 +10,7 @@ import Credit from '../components/Credit.astro';
 import Socialicon from '../components/Socialicon.astro';
 import Qna from '../components/Qna.astro';
 import VidCat from '../components/VidCat.astro';
+import Map from '../components/Map.astro';
 
 
 
@@ -20,7 +21,13 @@ const linkClient = [
     },{
         nama: 'pertanyaan Seputar Pendaftaran',
         link: 'alhassan.sch.id/posts/FnWJbthwc3t7a5rCFQCC'
-    }
+    },{
+		nama: "Daftar Online (Santri Putra)",
+		link: "api.whatsapp.com/send/?phone=6281383382399&text=Assalamualaikum+Warahmatullahi+Wabarakatuh%2C+Dengan+hormat%2C+kami+ingin+mendaftarkan+putra+kami+di+pondok+pesantren+yang+Bapak%2FIbu+kelola.+Mohon+petunjuknya.+Terima+kasih."
+	},{
+		nama: "Daftar Online (Santri Putri)",
+		link: "api.whatsapp.com/send/?phone=6281385076454&text=Assalamualaikum+Warahmatullahi+Wabarakatuh%2C+Dengan+hormat%2C+kami+ingin+mendaftarkan+putri+kami+di+pondok+pesantren+yang+Bapak%2FIbu+kelola.+Mohon+petunjuknya.+Terima+kasih."
+	}
     
 ]
 
@@ -28,23 +35,26 @@ const dataClient = [
     {
        images : "/ltq al-hassan.webp",
        alt : "contoh",
-       title: "Ini Gambar",
+       title: "LTQ PPM Al-Hassan",
        desc : "ini deskripsi",
-       CTA : "Tombol CTA"
+       CTA : "Baca",
+	   link: "https://www.instagram.com/p/CoXyh_7yCKo/?igshid=ODM2MWFjZDg"
     },
     {
        images : "/pesan.webp",
        alt : "contoh",
-       title: "Ini Gambar",
+       title: "Pesan Kiyai",
        desc : "ini deskripsi",
-       CTA : "Tombol CTA"
+       CTA : "Baca",
+	   link: "https://www.instagram.com/p/CVHvYo5vDOR/?igshid=ODM2MWFjZDg"
     },
     {
        images : "/kesan.webp",
        alt : "contoh",
        title: "Ini Gambar",
        desc : "ini deskripsi",
-       CTA : "Tombol CTA"
+       CTA : "Baca",
+	   link: "https://www.instagram.com/p/CoXyh_7yCKo/?igshid=ODM2MWFjZDg"
     },
 ]
 const ytClient = [
@@ -73,24 +83,28 @@ const Medsos = [
 ---
 
 <Layout title="Al-Hassan"  theme="emerald" favicon="./alhassan.webp" 
-analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}' size="400% 400%" background="linear-gradient(45deg, #c9e258 20%, #f6eeee 72%)">
+analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}' size="cover" background="url('/alhassanBG.webp')">
 	<main>
 		<Nav 
 		src="./alhassan.webp"
-		title= 'Al-Hassan'
-        text= 'Kumpulan link Bermanfaat Al-Qolam'
-        url= 'https://kartu.sarbeh.com'
+		title= 'PPM Al-Hassan | معهد الحسان للتربية الإسلامية الحديثة'		
+        text= 'Pondok Pesantren Modern Al-Hassan Bekasi'
+        url= 'https://qlm.one/alhassan'
 		/>
 		<Hero
-		name= "Al-Hassan" 
+		name= "PPM Al-Hassan" 
 		src = "./alhassan.webp"
-		tagline= "Muda • Beda • Berguna"
-
+		tagline= "معهد الحسان للتربية الإسلامية الحديثة"
+		tagline2="Pondok Pesantren Modern Al-Hassan Bekasi"
 		/>
 		<Socialicon Medsos={Medsos} />
 			<Card />
 			<Button linkClient={linkClient}/>
-			<Catalog Judul="Kitabatii"  dataClient={dataClient}/>
+			<Map 
+			map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.877784066228!2d106.93353301083769!3d-6.2797941614450155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698d6a04840479%3A0x31b0cd87dd0dc133!2sPondok%20Pesantren%20Modern%20Al-Hassan!5e0!3m2!1sen!2sid!4v1681663628647!5m2!1sen!2sid"
+			title="PPM Al-Hassan"
+			/>
+			<Catalog Judul="Al-Hassan Post"  dataClient={dataClient}/>
 			<VidCat dataClient={ytClient} title="Al-Hassan TV"/>
 
 			<Qna />
