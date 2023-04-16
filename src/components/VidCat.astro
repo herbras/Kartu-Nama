@@ -1,0 +1,33 @@
+---
+export interface Props {
+  dataClient : Array<{id:string, judul:string}>,
+  title : string
+}
+import { YouTube } from 'astro-embed';
+
+
+const {dataClient,title } = Astro.props;
+---
+<div class="p-4 mt-5">
+  <h1 class="card-title text-2xl font-bold">
+    {title}
+    
+  </h1>
+<div class="carousel carousel-center w-md md:w-lg p-4 space-x-4 bg-neutral rounded-box mt-2" >
+    
+  {
+    dataClient.map(({id,judul})=>
+    <div class="carousel-item card w-96 bg-base-100 shadow-xl text-center ">
+    <div>
+      <YouTube id={id} playlabel="Play the video" />
+      </div>
+      <div>
+      <p class="text-xl text-center font-semibold text-gray-700 mt-5">{judul}</p>
+    </div>
+  </div>
+  
+
+    )
+}
+  </div>
+</div>
