@@ -120,7 +120,7 @@ function kartuNama() {
             ctx.textAlign = 'center';
             ctx.textBaseline = 'top';
 const paddingLeft = 675;
-const paddingTop = 655;
+const paddingTop = this.size === 'FeedArBlue' ? '680' : '655';
 
 ctx.fillText(this.nama, paddingLeft, paddingTop);
 

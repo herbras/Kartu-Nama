@@ -13,6 +13,7 @@ import VidCat from '../components/VidCat.astro';
 import Map from '../components/Map.astro';
 import AlhassanCard from '../components/AlhassanCard.astro';
 
+import { Icon } from 'astro-icon'
 
 
 const linkClient = [
@@ -59,6 +60,13 @@ const dataClient = [
        desc : "ini deskripsi",
        CTA : "Baca",
 	   link: "https://www.instagram.com/p/CoXyh_7yCKo/?igshid=ODM2MWFjZDg"
+    }, {
+       images : "/dokumentas.webp",
+       alt : "Potret Dokumentasi 2023",
+       title: "Potret Dokumentasi 2023",
+       desc : "ini deskripsi",
+       CTA : "Baca",
+	   link: "https://www.instagram.com/p/CoJ78MDSZQ7/?igshid=YmMyMTA2M2Y"
     },
 ]
 const ytClient = [
@@ -116,7 +124,15 @@ analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}' size="cover" background
 			<VidCat dataClient={ytClient} title="Al-Hassan TV"/>
 
 			<Qna />
-			<Credit />
+			<div class="mx-auto w-fit mt-5">
+				<a href="https://www.instagram.com/p/CdH0bcgvmnh/" class=" btn glass bg-black gap-2 hover:text-black">
+					<Icon name="mdi:instagram" class="h-6 w-6" />
+					Fitri Hafizh Arrizky
+					
+				  </a>
+			</div>
+			
+			  			<Credit />
 	</main>
 </Layout>
 
@@ -125,6 +141,7 @@ analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}' size="cover" background
 		text-align: left;
 		margin: auto;
 		padding: 1.5rem;
+		padding-bottom: 0;
 		max-width: 90ch;	font-family: 'Montserrat', sans-serif;
 
 	}
