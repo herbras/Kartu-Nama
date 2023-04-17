@@ -1,0 +1,217 @@
+---
+---
+<div class="mt-5">
+<h1 class="card-title block text-2xl text-center mb-5 font-bold">
+    Selamat Menyambut Hari Raya
+  </h1>
+<div x-data="kartuNama()"  class="card  md:flex-row gap-5 w-full bg-base-100 shadow-md shadow-neutral-500/80 hover:shadow-lime-500/40">
+    
+
+
+    <img id="FeedBlue" src="kartu-biru.png" alt="Background Image for Feed" style="display:none;">
+
+    <img id="FeedArBlue" src="kartu-biru-ar.png" alt="Background Image for Feed" style="display:none;">
+
+    <img id="FeedGreen" src="kartu-hijau.png" alt="Background Image for Feed" style="display:none;">
+
+    <img id="FeedArGreen" src="kartu-hijau-ar.png" alt="Background Image for Feed" style="display:none;">
+    <img id="FeedPurp" src="kartu-ungu-ar.png" alt="Background Image for Feed" style="display:none;">
+
+    <img id="FeedArPurp" src="kartu-ungu-ar.png" alt="Background Image for Feed" style="display:none;">
+
+
+    <div class="card-body m-45 w-full grid gap-8">
+      
+      <div class="card-actions justify-end">
+
+		<input type="text" id="nama" name="nama" x-model="nama" @input="drawKartuNama()" placeholder="Tulis Namamu disini" class="input input-bordered input-secondary w-full" />
+    
+    <select id="size" x-model="size" @change="drawKartuNama()" class="custom-select select select-warning w-full " placeholder="Ukuran">
+		<option disabled selected>Pilih Model Kartu</option>
+
+        <option value="FeedBlue">Feed Biru</option>
+        <option value="FeedArBlue">Feed Biru Arab</option>
+        <option value="FeedGreen">Feed Hijau</option>
+        <option value="FeedArGreen">Feed Hijau Arab</option>
+        <option value="FeedPurp">Feed Ungu</option>
+        <option value="FeedArPurp">Feed Ungu Arab</option>
+       
+    </select>
+      </div>
+       <div class="flex gap-5">
+        <button class="btn btn-success" id="unduhKartuNama" @click="unduhKartuNama()">Unduh</button>
+        <button class="btn btn-primary" id="bagikanKartuNama" @click="bagikanKartuNama()">Bagikan</button>
+
+
+       </div>
+	</div>
+    <figure class="w-full" style="margin-right: 45px;"> <canvas id="kartuNamaCanvas" width="300" height="150" style="border:1px solid #000000;">
+    </canvas>
+    <img id="previewKartuNama" src="/coloa.svg" alt="Preview Kartu Nama"></figure>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js" integrity="sha512-v/wOVTkoU7mXEJC3hXnw9AA6v32qzpknvuUF6J2Lbkasxaxn2nYcl+HGB7fr/kChGfCqubVr1n2sq1UFu3Gh1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script is:inline>
+WebFont.load({
+    google: {
+        families: ['Montserrat:800', 'Almarai:800']
+    }
+});
+
+function kartuNama() {
+    return {
+        nama: '',
+        size: 'FeedBlue',
+
+        drawKartuNama() {
+            const canvas = document.getElementById('kartuNamaCanvas');
+            const ctx = canvas.getContext('2d');
+            const bgImageFeedBlue = document.getElementById('FeedBlue');
+            const bgImageFeedArBlue = document.getElementById('FeedArBlue');
+            const bgImageFeedGreen = document.getElementById('FeedGreen');
+            const bgImageFeedArGreen = document.getElementById('FeedArGreen');
+            const bgImageFeedPurp = document.getElementById('FeedPurp');
+            const bgImageFeedArPurp = document.getElementById('FeedArPurp');
+            const { width, height } = this.getCanvasSize();
+
+            canvas.width = width;
+            canvas.height = height;
+
+            ctx.clearRect(0, 0, width, height);
+
+            switch (this.size) {
+                case 'FeedBlue':
+                    ctx.drawImage(bgImageFeedBlue, 0, 0, width, height);
+                    break;
+                case 'FeedArBlue':
+                    ctx.drawImage(bgImageFeedArBlue, 0, 0, width, height);
+                    break;
+                case 'FeedGreen':
+                    ctx.drawImage(bgImageFeedGreen, 0, 0, width, height);
+                    break;
+                case 'FeedArGreen':
+                    ctx.drawImage(bgImageFeedArGreen, 0, 0, width, height);
+                    break;
+                case 'FeedPurp':
+                    ctx.drawImage(bgImageFeedPurp, 0, 0, width, height);
+                    break;
+                case 'FeedArPurp':
+                    ctx.drawImage(bgImageFeedArPurp, 0, 0, width, height);
+                    break;
+            }
+
+            // Create a linear gradient object
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+
+            // Add color stops to the gradient object
+            gradient.addColorStop(0, '#754B00');
+            gradient.addColorStop(0.2448, '#D48C0C');
+            gradient.addColorStop(0.4714, '#754B00');
+            gradient.addColorStop(0.7448, '#D48C0C');
+            gradient.addColorStop(1, '#754B00');
+
+            // Apply the gradient to ctx.fillStyle
+            ctx.fillStyle = "gradient";
+
+            // Choose font based on the size property
+
+            ctx.font = (this.size === 'FeedPurp' || this.size === 'FeedGreen' || this.size === 'FeedBlue') ? '800 45px Montserrat' : '800 45px Almarai';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+const paddingLeft = 675;
+const paddingTop = 655;
+
+ctx.fillText(this.nama, paddingLeft, paddingTop);
+
+this.updatePreview();
+},
+bagikanKartuNama() {
+if (!navigator.share) {
+alert('Fitur ini tidak didukung di peramban Anda.');
+return;
+}
+
+this.updatePreview();
+const canvas = document.getElementById('kartuNamaCanvas');
+canvas.toBlob(async blob => {
+try {
+    await navigator.share({
+        title: `${this.nama} - Kartu Tahniah`,
+        text: 'تقبل الله منا و منكم :',
+        files: [new File([blob], `${this.nama}.png`, { type: 'image/png' })],
+    });
+} catch (error) {
+    console.error('Error saat berbagi kartu nama:', error);
+    alert('Terjadi kesalahan saat berbagi kartu tahniah.');
+}
+}, 'image/png');
+},
+        unduhKartuNama() {
+            this.updatePreview();
+            const canvas = document.getElementById('kartuNamaCanvas');
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = `${this.nama}.png`;
+            link.click();
+        },
+        getCanvasSize() {
+    if (this.size === 'story' || this.size === 'storyArab') {
+        return { width: 1080, height: 1920 };
+    } else {
+        return { width: 1080, height: 1080 };
+    }
+},
+        updatePreview() {
+            const canvas = document.getElementById('kartuNamaCanvas');
+            const preview = document.getElementById('previewKartuNama');
+            const scaleFactor = this.getPreviewScaleFactor();
+
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = canvas.width * scaleFactor;
+            tempCanvas.height = canvas.height * scaleFactor;
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCtx.drawImage(canvas, 0, 0, tempCanvas.width, tempCanvas.height);
+
+            preview.src = tempCanvas.toDataURL('image/png');
+        },
+        getPreviewScaleFactor() {
+            if (this.size === 'story' || this.size === 'storyArab') {
+                return 0.25; // 50% dari ukuran asli
+            } else {
+                return 900 / 1080; // 400px lebar untuk IG Feed
+            }
+        },
+    };
+}
+    </script>
+
+<style>
+input[type="text"] {
+        padding: 5px 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+       
+
+        #kartuNamaCanvas {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            margin: 20px auto;
+        }
+
+        #previewKartuNama {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+        .custom-select::before {
+        content: attr(placeholder);
+        display: inline-block;
+        margin-right: 0.5em;
+        color: inherit;
+        pointer-events: none;
+    }</style>
+
