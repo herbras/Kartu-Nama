@@ -10,5 +10,11 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   integrations: [tailwind(), alpinejs(), partytown(), compressor()],
   output: "server",
-  adapter: vercel()
+  adapter: vercel(),
+  server: {
+    headers: {
+      'Expires': new Date(Date.now() + 31536000 * 1000).toUTCString(),
+      'Cache-Control': 'public, max-age=31536000, immutable',
+    },
+  },
 });
