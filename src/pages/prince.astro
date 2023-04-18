@@ -7,21 +7,31 @@ import Collapse from '../components/Collapse.astro';
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
 import Credit from '../components/Credit.astro';
+import Socialicon from '../components/Socialicon.astro';
 
 const linkClient = [
     {
-        nama: 'Website',
-        link: 'sarbeh.com/'
+        nama: 'Dapatkan Harga Khusus Lebaran!',
+        link: 'wa.me/62819818001?text=Bismillah%2C%20saya%20mau%20dapatkan%20harga%20khusus%20lebaran%20di%20Prince'
     },{
-        nama: 'Portofolio',
-        link: 'sarbeh.com/work/'
+        nama: 'Beri kejutan istimewa keluarga sekarang!',
+        link: 'wa.me/62819818001?text=Bismillah%2C%20saya%20mau%20pesan%20parcel%20kado%20istimewa%20untuk%20keluarga'
     },{
-        nama: 'Blog',
-        link: 'sarbeh.com/blog/'
+        nama: 'Pesan lewat WA',
+        link: 'wa.me/62819818001?text=List%20order%0ANama%20%3A%0ABarang%20yang%20dipesan%20%3A%0AUkuran%20%3A%0AAlamat%20%3A%0ANo.%20Hp%20aktif%20%3A'
     },
     {
-        nama: 'Free Assets',
-        link: 't.me/alqolam_web'
+        nama: 'Pesan lewat Instagram',
+        link: 'ig.me/m/princemoslemfashion'
+    },{
+        nama: 'Pesan lewat Tokopedia',
+        link: 'tokopedia.com/princeofficial'
+    },{
+        nama: 'Mau grosir dan bermitra, langsung cek!',
+        link: 'wa.me/62819818001?text=Bismillah%2C%20kami%20ingin%20bermitra%20bersama%20anda%20mohon%20bantuannya'
+    },{
+        nama: 'Buat seragam cepat dan tepat, free konsultasi',
+        link: 'wa.me/62819818001?text=Bismillah%2C%20kami%20ingin%20bikin%20seragam%20mohon%20bantuannya'
     },
     
 ]
@@ -64,25 +74,45 @@ const ytClient = [
         id: "yDgM10mG-2k"
     }
 ]
+
+const Medsos = [ 
+     { 
+         id :"ic:outline-facebook", 
+                url:"https://www.facebook.com/profile.php?id=100083288589869&mibextid=ZbWKwL" 
+     }, 
+     { 
+         id: "mdi:instagram", 
+                 url:"https://instagram.com/princemoslemfashion" 
+  
+     }, 
+     { 
+         id: "ic:baseline-whatsapp", 
+                 url:"https://wa.me/c/6289504858948" 
+  
+     }, 
+         { 
+         id: "mdi:shopping-search", 
+                 url:"https://www.tokopedia.com/princeofficial" 
+  
+     }, 
+ ]
 ---
 
-<Layout background="url('/prince.svg')" size="cover" title="Prince Fashion" favicon="/prince.jpg" theme="cupcake">
+<Layout background="url('/prince.svg')" size="cover" title="Prince Fashion" favicon="/prince.jpg" theme="light">
 	<main>
 		<Nav 
         src="/prince.jpg"
 		title= 'PRINCE | Moslem Fashion'
         text= '𝐉𝐚𝐝𝐢𝐥𝐚𝐡 𝐏𝐚𝐧𝐠𝐞𝐫𝐚𝐧 𝐝𝐢 𝐬𝐞𝐭𝐢𝐚𝐩 𝐦𝐨𝐦𝐞𝐧 𝐚𝐧𝐝𝐚'
-        url= 'https://qlm.one/princemoslemfashion'
+        url= 'https://qlm.one/prince'
         />
 		<Hero 
         name= "PRINCE Moslem Fashion" 
 		src = "/prince.jpg"
 		tagline= "𝐉𝐚𝐝𝐢𝐥𝐚𝐡 𝐏𝐚𝐧𝐠𝐞𝐫𝐚𝐧 𝐝𝐢 𝐬𝐞𝐭𝐢𝐚𝐩 𝐦𝐨𝐦𝐞𝐧 𝐚𝐧𝐝𝐚"
         />
-			<Card />
+<Socialicon Medsos={Medsos} />
 			<Button linkClient={linkClient}/>
-			<Catalog Judul="Ipung" dataClient={dataClient}/>
-			<Collapse dataClient={ytClient} />
 			
 <Credit />
 	</main>
