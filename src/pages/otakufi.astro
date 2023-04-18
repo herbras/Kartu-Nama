@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Catalog from "../components/Catalog.astro";
+import Collapse from "../components/Collapse.astro";
+import Hero from "../components/Hero.astro";
+import Nav from "../components/Nav.astro";
+import Credit from "../components/Credit.astro";
+import Socialicon from "../components/Socialicon.astro";
+import Contact from "../components/contact.astro";
+import "../styles/glo.css"
+const linkClient = [
+  {
+    nama: "Instagram",
+    link: "instagram.com/otakufi_",
+  },
+  {
+    nama: "Telegram",
+    link: "t.me/otakufi",
+  },
+  {
+    nama: "Whatsapp",
+    link: "wa.me/6281354772088",
+  },
+];
+
+const dataClient = [
+  {
+    images: "/stock-1.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-2.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-3.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-4.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+];
+
+
+const Medsos = [
+  {
+    id: "ic:baseline-whatsapp",
+    url: "https://api.whatsapp.com/send/?phone=62819818001&text&type=phone_number&app_absent=0",
+  },
+  {
+    id: "ic:baseline-facebook",
+    url: "https://www.facebook.com/otaku.co.id",
+  },
+  {
+    id: "mdi:instagram",
+    url: "https://www.instagram.com/otak_english",
+  },
+  {
+    id: "mdi:twitter",
+    url: "https://twitter.com/otakufenglish",
+  },
+  
+];
+---
+
+<Layout
+  title="otakufi Indonesia"
+  theme="emerald"
+  favicon="./otakufi.webp"
+  analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}'
+  size="400% 400%"
+  background="#FAC143"
+>
+  <main>
+    <Nav
+      src="./otakufi.webp"
+      title="OTAKUFI"
+      text="Kontak Otakufi"
+      url="https://qlm.one/otakufi"
+    />
+    <Hero
+      name="OTAKUFI"
+      src="./otakufi.webp"
+      tagline="Lika liku otak tu kek kufi. :v"
+    />
+    <Socialicon Medsos={Medsos} />
+    <Button linkClient={linkClient} />
+
+    <Credit />
+  </main>
+</Layout>
+
+
