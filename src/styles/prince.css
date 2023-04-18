@@ -1,0 +1,17 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.text-transparent-black-50 {
+  position: relative;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.text-transparent-black-50::before {
+  content: attr(data-text);
+  position: absolute;
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 1px white;
+  text-stroke: 1px white;
+  z-index: -1;
+}
