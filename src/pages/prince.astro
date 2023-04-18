@@ -7,6 +7,7 @@ import Collapse from '../components/Collapse.astro';
 import Hero from '../components/Hero.astro';
 import Nav from '../components/Nav.astro';
 import Credit from '../components/Credit.astro';
+import Socialicon from '../components/Socialicon.astro';
 
 const linkClient = [
     {
@@ -73,6 +74,28 @@ const ytClient = [
         id: "yDgM10mG-2k"
     }
 ]
+
+const Medsos = [ 
+     { 
+         id :"ic:outline-facebook", 
+                url:"https://www.facebook.com/profile.php?id=100083288589869&mibextid=ZbWKwL" 
+     }, 
+     { 
+         id: "mdi:instagram", 
+                 url:"https://instagram.com/princemoslemfashion" 
+  
+     }, 
+     { 
+         id: "ic:baseline-whatsapp", 
+                 url:"https://wa.me/c/6289504858948" 
+  
+     }, 
+         { 
+         id: "arcticons:tokopedia", 
+                 url:"https://www.tokopedia.com/princeofficial" 
+  
+     }, 
+ ]
 ---
 
 <Layout background="url('/prince.svg')" size="cover" title="Prince Fashion" favicon="/prince.jpg" theme="light">
@@ -88,6 +111,7 @@ const ytClient = [
 		src = "/prince.jpg"
 		tagline= "𝐉𝐚𝐝𝐢𝐥𝐚𝐡 𝐏𝐚𝐧𝐠𝐞𝐫𝐚𝐧 𝐝𝐢 𝐬𝐞𝐭𝐢𝐚𝐩 𝐦𝐨𝐦𝐞𝐧 𝐚𝐧𝐝𝐚"
         />
+<Socialicon Medsos={Medsos} />
 			<Button linkClient={linkClient}/>
 			
 <Credit />
