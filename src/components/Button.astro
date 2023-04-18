@@ -13,7 +13,7 @@ const {linkClient } = Astro.props;
 <div class="flex flex-col gap-4 mt-5">
     {
         linkClient.map(({nama,link})=>
-        <a href={`https://${link}`} class="btn btn-block hover:scale-110 hover:btn-secondary">{nama}</a>
+        <a href={`https://${link}`} aria-label={nama} class="btn btn-block hover:scale-110 hover:btn-secondary">{nama}</a>
 
         )
     }
