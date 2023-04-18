@@ -4,7 +4,7 @@ import alpinejs from "@astrojs/alpinejs";
 import partytown from "@astrojs/partytown";
 import compressor from "astro-compressor";
 
-import vercel from "@astrojs/vercel/serverless";
+import vercel from '@astrojs/vercel/edge';
 
 // https://astro.build/config
 export default defineConfig({
