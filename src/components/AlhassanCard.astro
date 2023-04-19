@@ -24,22 +24,19 @@
       
       <div class="card-actions justify-end">
 
-		<label for="nama" class="sr-only">Tulis Nama Anda</label>
-<input type="text" id="nama" name="nama" x-model="nama" @input="drawKartuNama()" placeholder="Tulis Namamu disini" class="input input-bordered input-secondary w-full" aria-label="Tulis Nama Anda" />
+		<input type="text" id="nama" name="nama" x-model="nama" @input="drawKartuNama()" placeholder="Tulis Namamu disini" class="input input-bordered input-secondary w-full" />
+    
+    <select id="size" x-model="size" @change="drawKartuNama()" class="custom-select select select-warning w-full " placeholder="Ukuran">
+		<option disabled selected>Pilih Model Kartu</option>
 
-<label for="size" class="sr-only">Pilih Model Kartu</label>
-<select id="size" x-model="size" @change="drawKartuNama()" class="custom-select select select-warning w-full" aria-label="Pilih Model Kartu">
-	<option disabled selected>Pilih Model Kartu</option>
-
-    <option value="FeedBlue">Feed Biru</option>
-    <option value="FeedArBlue">Feed Biru Arab</option>
-    <option value="FeedGreen">Feed Kuning</option>
-    <option value="FeedArGreen">Feed Kuning Arab</option>
-    <option value="FeedPurp">Feed Hijau</option>
-    <option value="FeedArPurp">Feed Hijau Arab</option>
+        <option value="FeedBlue">Feed Biru</option>
+        <option value="FeedArBlue">Feed Biru Arab</option>
+        <option value="FeedGreen">Feed Kuning</option>
+        <option value="FeedArGreen">Feed Kuning Arab</option>
+        <option value="FeedPurp">Feed Hijau</option>
+        <option value="FeedArPurp">Feed Hijau Arab</option>
        
-</select>
-
+    </select>
       </div>
        <div class="flex gap-5">
         <button class="btn btn-success" id="unduhKartuNama" @click="unduhKartuNama()">Unduh</button>
