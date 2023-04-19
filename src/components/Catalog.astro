@@ -1,38 +1,18 @@
----
-export interface Props {
-	Judul : string,
-  dataClient : Array<{images:string, alt:string,title:string, desc:string,link:string,CTA:string}>,
-}
-
-
-const {Judul, dataClient } = Astro.props;
-
-
-
----
-<div class="p-4 mt-5">
-    <h1 class="card-title text-2xl font-bold">
-        {Judul}
-       
-      </h1>
-<div class="carousel carousel-center w-md md:w-lg p-4 space-x-4 bg-neutral rounded-box mt-2" >
-    
-    {
-    dataClient.map(({images, alt, title,link,CTA})=>
-    <div class="carousel-item card w-56 bg-base-100 shadow-xl">
-      <figure>
-  <img src={images} class="w-full h-56 object-cover object-center" alt={alt} />
-</figure>
-
-        <div class="card-body flex flex-col justify-between">
-          <h2 class="card-title ">{title}</h2>
-          <div class="card-actions justify-end">
-            <a rel="dns-prefetch" href={link} class="btn btn-primary">{CTA}</a>
-          </div>
-        </div>
-      </div>
-    )
-   
-    }
-  </div>
-</div>
+--- 
+  
+ export interface Props { 
+   linkClient : Array<{nama:string, link:string}>, 
+ } 
+  
+  
+ const {linkClient } = Astro.props; 
+  
+--- 
+ <div class="flex flex-col gap-4 mt-5"> 
+     { 
+         linkClient.map(({nama,link})=> 
+         <a rel="dns-prefetch" href={`https://${link}`} aria-label={nama} class="btn btn-block hover:scale-110 hover:btn-stone-900">{nama}</a> 
+  
+         ) 
+     } 
+ </div>
