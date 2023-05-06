@@ -1,0 +1,148 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+import Catalog from "../components/Catalog.astro";
+import Collapse from "../components/Collapse.astro";
+import Hero from "../components/Hero.astro";
+import Nav from "../components/Nav.astro";
+import Credit from "../components/Credit.astro";
+import Socialicon from "../components/Socialicon.astro";
+import Contact from "../components/contact.astro";
+import Kontak from "../components/Kontak.astro";
+import Donasi from "../components/Donasi.astro";
+
+const linkClient = [
+  {
+    nama: "Website",
+    link: "TAHFIZHMAKKAH.co.id/",
+  },
+  {
+    nama: "Whatsapp",
+    link: "wa.me/62818880600",
+  },
+  {
+    nama: "Instagram Tafizh Makkah",
+    link: "https://instagram.com/tahfizh_makkah?igshid=ZDdkNTZiNTM",
+  },
+  {
+    nama: "Fanspage Tahfizh Makkah",
+    link: "https://www.facebook.com/profile.php?id=100091997213034&mibextid=ZbWKwL",}
+];
+
+const dataClient = [
+  {
+    images: "/stock-1.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-2.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-3.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+  {
+    images: "/stock-4.webp",
+    alt: "contoh",
+    title: "Ini Gambar",
+    desc: "ini deskripsi",
+    CTA: "Tombol CTA",
+  },
+];
+
+
+const Medsos = [
+  {
+    id: "ic:baseline-whatsapp",
+    url: "https://api.whatsapp.com/send/?phone=62818880600&text&type=phone_number&app_absent=0",
+  },
+  {
+    id: "ic:baseline-facebook",
+    url: "https://www.facebook.com/profile.php?id=100091997213034&mibextid=ZbWKwL",
+  },
+  {
+    id: "mdi:instagram",
+    url: "https://instagram.com/tahfizh_makkah?igshid=ZDdkNTZiNTM",
+  },
+
+];
+---
+
+<Layout
+  title="TAHFIZH MAKKAH"
+  theme="mytheme"
+  favicon="./banglele.webp"
+  analitis='{"token": "5503670bb70548b8894a6093ae2ab107"}'
+  size="cover"
+  background="url('/tahfidz2.svg')"
+>
+  <main>
+    <Nav
+      src="./banglele.webp"
+      title="TAHFIZH MAKKAH      "
+      text="Meniti Jejak Ulama Sejak Dini"
+      url="https://qlm.one/banglele"
+    />
+    <Hero
+      name="TAHFIZH MAKKAH"
+      src="./makkah.png"
+      tagline="YAYASAN MAKKAH WADY MUBAROK"
+    />
+    <Socialicon Medsos={Medsos} />
+    <Button linkClient={linkClient} />
+    <Donasi />
+<Kontak />
+    <Credit />
+  </main>
+</Layout>
+
+<style>
+  main {
+    text-align: left;
+    margin: auto;
+    padding: 1.5rem;
+    padding-bottom: 0;
+    max-width: 90ch;
+  }
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+
+  .instructions {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent), 25%);
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.4rem;
+  }
+  .instructions code {
+    font-size: 0.875em;
+    font-weight: bold;
+    background: rgba(var(--accent), 12%);
+    color: rgb(var(--accent));
+    border-radius: 4px;
+    padding: 0.3em 0.45em;
+  }
+  .instructions strong {
+    color: rgb(var(--accent));
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+</style>

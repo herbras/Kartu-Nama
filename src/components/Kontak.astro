@@ -1,0 +1,120 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<div class="collapse collapse-arrow mt-5">
+  <input type="checkbox" />
+
+  <h1
+    class="collapse-title btn btn-block hover:scale-110 transition-transform duration-200"
+  >
+    Contact Us
+  </h1>
+
+  <div class="collapse-content bg-base-100 rounded-b-md text-center">
+    <div class="p-5">
+      <h2 class="text-2xl font-bold mb-2">YAYASAN MAKKAH WADY MUBAROK</h2>
+      <h3 class="text-md font-medium mb-4">PT BANGLELE INDONESIA MAJU</h3>
+      <ul class="space-y-3 font-semibold md:px-28 text-left">
+        <li class="flex items-center space-x-4">
+          <div>
+            <Icon
+              name="ic:sharp-alternate-email"
+              class="w-8 md:w-8 lg:w-8 xl:w-8 2xl:w-8"
+            />
+          </div>
+          <div>
+            <a
+              rel="dns-prefetch"
+              href="mailto:official@banglele.co.id"
+              class="hover:underline"
+            >
+              tahfizhmakkah@gmail.com
+            </a>
+          </div>
+        </li>
+
+        <li class="flex items-center space-x-4">
+          <div>
+            <Icon
+              name="mdi:telephone"
+              class="w-8 md:w-8 lg:w-8 xl:w-8 2xl:w-8"
+            />
+          </div>
+          <div>
+            <a
+              rel="dns-prefetch"
+              href="tel:0761589546
+            "
+              class="hover:underline"
+            >
+              0761589546
+            </a>
+          </div>
+        </li>
+        <li class="flex items-center space-x-4">
+          <div>
+            <Icon
+              name="mdi:map-marker"
+              class="w-8 h-8 md:w-8 md:h-8 lg:w-8 lg:h-8 xl:w-8 xl:h-8 2xl:w-8 2xl:h-8"
+            />
+          </div>
+          <div>
+            <a
+              rel="dns-prefetch"
+              href="https://www.google.com/maps/search/?api=1&query=Jl.+Raya+Pasir+Putih+No.KM.5,+Desa+Baru,+Kec.+Siak+Hulu,+Kabupaten+Kampar,+Riau+28452"
+              class="hover:underline"
+            >
+              Jl. Sepakat, Pasir Putih, Desa Baru KM 5, Kec. Siak Hulu, Kab.
+              Kampar, Prov. Riau, Indonesia
+            </a>
+          </div>
+        </li>
+        <li class="flex items-center space-x-4">
+          <div>
+            <Icon
+              name="mdi:clock-time-eight-outline"
+              class="w-8 md:w-8 lg:w-8 xl:w-8 2xl:w-8"
+            />
+          </div>
+          <div><span> Minggu-Kamis, 08.00 WIB - 17.00 WIB</span></div>
+        </li>
+      </ul>
+
+      <button id="downloadVCard" class="btn btn-wide mt-5 gap-2">
+        Save to Contact
+        <Icon
+          name="ic:outline-contact-page          "
+          class="w-8 md:w-8 lg:w-8 xl:w-8 2xl:w-8"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+  document
+    .getElementById("downloadVCard")
+    .addEventListener("click", function () {
+      const firstName = "TAHFIZH";
+      const lastName = "MAKKAH";
+      const companyName = "YAYASAN MAKKAH WADY MUBAROK";
+      const website = "https://qlm.one/tahfidzmakkah";
+
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+N:${lastName};${firstName};;;
+ORG:${companyName}
+URL:${website}
+EMAIL:tahfizhmakkah@gmail.com
+TEL;TYPE=CELL:0761589546
+ADR;TYPE=WORK:;;Jl. Raya Pasir Putih No.KM.5, Desa Baru, Kec. Siak Hulu, Kabupaten Kampar, Riau 28452
+END:VCARD`;
+
+      const vCardBlob = new Blob([vCardData], { type: "text/vcard" });
+      const vCardURL = URL.createObjectURL(vCardBlob);
+      const tempLink = document.createElement("a");
+      tempLink.href = vCardURL;
+      tempLink.setAttribute("download", `${companyName.toUpperCase()}.vcf`);
+      tempLink.click();
+    });
+</script>
