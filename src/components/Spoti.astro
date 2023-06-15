@@ -3,31 +3,34 @@
 	
 <div id="embed-iframe"></div>
 
-<article class="group flex flex-col space-y-4 p-4">
- 
+<div class="flex">
+  <!-- First Column -->
+  <div class="flex flex-col space-y-4 p-4 w-1/2">
+    <button class="episode bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center w-full transition group-hover:grayscale-[50%]" data-spotify-id="spotify:episode:4oIiRoa5o9SzjGMyC8m4rs">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 mr-2">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8.257V19.743L20 14v0z"></path>
+      </svg>
+      Murottal - Surah AlBaqarah 124-126
+    </button>
+    <button class="episode bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center w-full transition group-hover:grayscale-[50%]" data-spotify-id="spotify:episode:4oIiRoa5o9SzjGMyC8m4rs">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 mr-2">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8.257V19.743L20 14v0z"></path>
+      </svg>
+      Murottal - Surah AlBaqarah 258-260
+    </button>
+    <button class="episode bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center w-full transition group-hover:grayscale-[50%]" data-spotify-id="spotify:episode:4U8nIgsI3Qa0BMASc4qByt">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 mr-2">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8.257V19.743L20 14v0z"></path>
+      </svg>
+      Murottal - Surah Ibrahim 35-41
+    </button>
+  </div>
 
-  <button class="episode bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center w-full transition group-hover:grayscale-[50%]" data-spotify-id="spotify:episode:4oIiRoa5o9SzjGMyC8m4rs">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 mr-2">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8.257V19.743L20 14v0z"></path>
-    </svg>
-    Murottal - Surah AlBaqarah 124-126
-  </button>
-  <button class="episode bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center w-full transition group-hover:grayscale-[50%]" data-spotify-id="spotify:episode:6DgtFS5H9x6xgbSaESry0W">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 mr-2">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8.257V19.743L20 14v0z"></path>
-    </svg>
-    Murottal - Surah AlBaqarah 258-260
-  </button>
-  <button class="episode bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center w-full transition group-hover:grayscale-[50%]" data-spotify-id="spotify:episode:4U8nIgsI3Qa0BMASc4qByt">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 mr-2">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 8.257V19.743L20 14v0z"></path>
-    </svg>
-    Murottal - Surah Ibrahim 35-41
-  </button>
-  <div class="p-4 text-center">
+  <!-- Second Column -->
+  <div class="p-4 w-1/2">
     <a href="https://open.spotify.com/show/65eXom03ypfjB5OPPnJjuk?si=33e1999be2674506&nd=1">
       <h3 class="text-lg font-extrabold text-gray-900">
-          AlQolam Official
+        AlQolam Official
       </h3>
     </a>
 
@@ -35,7 +38,8 @@
       AlQolam adalah media sharing keilmuan Islam. Kami hadir sebagai fasilitator bagi anak muda dan masyarakat pada umumnya agar bisa mengakses keilmuan Islam yang ilmiah.
     </p>
   </div>
-</article>
+</div>
+
 <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
 <script type="text/javascript">
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
