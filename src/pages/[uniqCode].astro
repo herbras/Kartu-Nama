@@ -1,0 +1,33 @@
+---
+const { uniqCode } = Astro.params;
+
+const data = `https://sarbeh.com/api/Uzc2g`;
+
+async function fetchData() {
+  try {
+    let response = await fetch(data, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ uniqcode: String(uniqCode) }),
+    });
+    let link = await response.text(); // Expecting a plain text response
+    console.log(`Response is: ${link}`);
+    
+    if (response.ok) {
+      return link;
+    } else {
+      console.log('Item not found');
+      return new Response(null, { status: 404, statusText: 'Not Found' });
+    }
+  } catch (err) {
+    console.error('Error:', err);
+    return new Response(null, { status: 404, statusText: 'Not Found' });
+  }
+}
+
+const nesw = await fetchData();
+console.log(nesw);
+return Astro.redirect(nesw);
+---
