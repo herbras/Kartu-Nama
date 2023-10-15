@@ -13,29 +13,28 @@ console.log(Medsos)
 const linkClient = data.Button;
 ---
 <Layout title="Tahfizh Makkah"  size="cover" favicon="/C2Tm.webp" background="url('/vignet.webp')">
-  <div class="flex flex-col p-5 p-t-15 items-center justify-center">
-      <div class="w-24 md:w-45 mb-4">
-          <img src="/C2Tm.webp" alt="Logo C2TM" />
-      </div>
-      <h1 class="text-3xl text-[#f7ab1b] font-bold mb-2">{Deskripsi.Header}</h1>
+  <div class="flex flex-col p-5 mt-5 items-center justify-center">
+    <img src="/C2Tm.webp" alt="Logo C2TM" class="w-[15rem]"/>
+    <h1 class="text-3xl text-[#f7ab1b] font-bold mb-2">{Deskripsi.Header}</h1>
       <h2 class="text-xl text-[#f7ab1b] mb-4">{Deskripsi.Deskripsi}</h2>
       
-      <div class="flex flex-col gap-4 mb-4">
+      <div class="w-full max-w-md mx-auto">
           {
               linkClient.map(({Keterangan, Url}) =>
-                  <a rel="dns-prefetch" href={Url} aria-label={Keterangan} class="btn bg-[rgba(189,39,6,0.77)] text-white p-2 rounded-md hover:scale-110 hover:bg-red-600">{Keterangan}</a>
+                  <a rel="dns-prefetch" href={Url} aria-label={Keterangan} class="flex flex-col text-center 
+                  items-center justify-between  font-bold bg-[rgba(189,39,6,0.77)] text-white p-4 mb-2 rounded-2xl">{Keterangan}</a>
               )
           }
       </div>
 
       <div id="bank-numbers" class="w-full max-w-md mx-auto">
           {detailBank.map((bank, index) => (
-              <div key={index} class="flex flex-col  items-center justify-between bg-[rgba(189,39,6,0.77)] text-white p-4 mb-2 rounded-md">
-                  <div>
-                      <h4 class="font-bold text-2xl">{bank.Norek}</h4>
-                      <p id={`norek-${index}`} class="font-semibold text-lg">{bank['Nama Bank']}</p>
-                  </div>
-                  <button id={`copy-button-${index}`} class="btn btn-sm bg-white text-red-500 p-1">Copy</button>
+              <div key={index} class="flex flex-col text-center gap-5 items-center justify-between bg-[rgba(189,39,6,0.77)] text-white py-6 mb-2 rounded-2xl">
+                  
+                      <h4 class="font-bold text-[#f7ab1b] text-2xl">{bank.Norek}</h4>
+                      <p id={`norek-${index}`} class="font-semibold text-3xl md:text-4xl">{bank['Nama Bank']}</p>
+                  
+                  <button id={`copy-button-${index}`} class="btn btn-sm border-0 bg-[#f7ab1b] px-5 text-white p-1">Copy</button>
               </div>
           ))}
       </div>
@@ -43,7 +42,7 @@ const linkClient = data.Button;
       <div class="flex gap-4 mt-5">
           {Medsos.map(({Media, Icons, Url}) =>
               <a rel="dns-prefetch" aria-label={Media} href={Url} target="_blank" rel="noopener">
-                  <Icon name={Icons} class="w-8 h-8 text-red-500 hover:bg-[rgba(189,39,6,0.77)] hover:text-white" />
+                  <Icon name={Icons} class="w-8 h-8 text-[#8f181b] hover:text-white" />
               </a>
           )}
       </div>
