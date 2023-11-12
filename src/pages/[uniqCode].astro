@@ -12,22 +12,25 @@ async function fetchData() {
       },
       body: JSON.stringify({ uniqcode: String(uniqCode) }),
     });
-    let link = await response.text(); // Expecting a plain text response
+    let link = await response.text();
     console.log(`Response is: ${link}`);
     
     if (response.ok) {
       return link;
     } else {
       console.log('Item not found');
-      return new Response(null, { status: 404, statusText: 'Not Found' });
+      // Redirect ke 404 jika tidak ada data
+      return Astro.redirect('/404');
     }
   } catch (err) {
     console.error('Error:', err);
-    return new Response(null, { status: 404, statusText: 'Not Found' });
+    // Redirect ke 404 dalam kasus error
+    return Astro.redirect('/404');
   }
 }
 
-const nesw = await fetchData();
-console.log(nesw);
-return Astro.redirect(nesw);
+const news = await fetchData();
+console.log(news);
+// Redirect berdasarkan respons dari fetchData
+return Astro.redirect(news);
 ---
