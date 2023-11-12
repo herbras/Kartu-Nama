@@ -19,18 +19,24 @@ async function fetchData() {
       return link;
     } else {
       console.log('Item not found');
-      // Redirect ke 404 jika tidak ada data
-      return Astro.redirect('/404');
+      // Mengembalikan null atau string yang menunjukkan error
+      return null;
     }
   } catch (err) {
     console.error('Error:', err);
-    // Redirect ke 404 dalam kasus error
-    return Astro.redirect('/404');
+    // Mengembalikan null atau string yang menunjukkan error
+    return null;
   }
 }
 
 const news = await fetchData();
-console.log(news);
-// Redirect berdasarkan respons dari fetchData
-return Astro.redirect(news);
+
+if (news) {
+  console.log(news);
+  // Redirect berdasarkan respons dari fetchData
+  return Astro.redirect(news);
+} else {
+  // Redirect ke 404 jika news null atau menunjukkan error
+  return Astro.redirect('/404');
+}
 ---
