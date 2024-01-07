@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+export const prerender = true;
+import { Icon } from "astro-icon";
+const response = await fetch(
+    "https://script.googleusercontent.com/macros/echo?user_content_key=YUhM8UXKqyOi9KaV-xcwPr3GejWO3KDBYAX6thmlhmYx-P2y6skhIa0pKmhMiw1qqgRCLT11xBm793kfIrLeUF0dLp7qJUp9m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnBf48SF6Bn-xL19_b-kTJI4_ys2a2xPyMCsolOKzcHWXyVOrG_4kZzEc7eQw_xNyQytiC_PDx2WUPW-bgwIf4gevrj2w6-IW8Q&lib=MDplgeTlsk-kqUGET480H8YizMWXW7kZ8",
+);
+const data = await response.json();
+console.log(data)
+---
+
+<Layout
+    title="Project"
+    theme="forest"
+    favicon="https://main--herbras.netlify.app/assets/icon.webp"
+    size="400% 400%"
+    background="linear-gradient(45deg, #b3d9ff 20%, #80bfff 50%, #4da6ff 72%)"
+>
+    <main>
+        <Nav
+            src="https://main--herbras.netlify.app/assets/icon.webp"
+            title="Project from CV"
+            url="https://www.qlm.one/cvProject"
+        />
+
+        <div class="grid mx-auto w-fit grid-cols-1 lg:px-12 gap-4 py-12">
+            {
+                 data.personalProject.map(({ Deskripsi, Nama, Url, Github })  => (
+                    <div class="stack">
+                        <div class="card w-45 lg: w-45 lg:w-96 shadow-xl image-full">
+                            <div class="card-body">
+                                <h2 class="card-title font-bold text-2xl">
+                                   {Nama}
+                                </h2>
+                                <p class="font-base text-md">
+                                {Deskripsi}
+                                </p>
+                                <div class="card-actions justify-end">
+                                    <a target="_blank"
+                                        href={Github}
+                                        class="btn hover:text-white text-black  font-bold bg-yellow-300"
+                                    >
+                                        <Icon name="mdi:github" class="w-5" />
+                                        Github
+                                    </a>
+                                    <a target="_blank"
+                                        href={Url}
+                                        class="btn hover:text-white text-black font-bold bg-yellow-300"
+                                    >
+                                        <Icon name="mdi:telegram" class="w-5" />
+                                        Go to App
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+        <div
+            class="flex flex-col md:flex-row w-full md:w-7/12 mx-auto w-fit gap-2 text-center glass rounded-md py-2 items-center justify-center mt-4"
+        >
+            <div class="text-sm md:text-md text-black font-bold">
+                Qlm.one: ❤️-crafted Innovation by
+            </div>
+            <div class="flex items-center space-x-4">
+                <div
+                    class="bg-neutral-focus text-black rounded-full w-8 h-8"
+                >
+                    <a rel="dns-prefetch" href="https://sarbeh.com">
+                        <img
+                            src="https://main--herbras.netlify.app/assets/icon.webp"
+                            alt="ibrahim NH"
+                            class="rounded-full"
+                        />
+                    </a>
+                </div>
+              
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    main {
+        text-align: left;
+        margin: auto;
+        padding: 1.5rem;
+        padding-bottom: 0;
+        max-width: 110ch;
+    }
+</style>

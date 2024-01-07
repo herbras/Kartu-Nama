@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.3.1",
     "@astrojs/partytown": "^2.0.2",
+    "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.0.4",
     "@astrojs/vercel": "^6.1.0",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
@@ -23,6 +24,7 @@
     "astro-icon": "^0.8.2",
     "daisyui": "^4.4.23",
     "postcss-nesting": "^12.0.2",
+    "svelte": "^4.2.8",
     "tailwindcss": "^3.4.0",
     "webfont": "^11.2.26"
   },

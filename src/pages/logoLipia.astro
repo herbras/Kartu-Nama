@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout-Tahfidz.astro";
+
+const response = await fetch(
+  "https://script.googleusercontent.com/macros/echo?user_content_key=hAaWWrHu2HMlOL_2W1wTUbrPtW-H3q5J4wPDGX0pnndtcM-LS17XAF3EEHQGUuCleKQEu2D_Gu9h3EM1n_iOew6czZlC4szcm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnK4tKcK_SWa4ClhwJui2QkQWM3Nk_EkWZDdoDTU0rLBDcO5fbJDrklU7aZXTavEReLoyGAMoRflslCe2Mj-SYMf_0tVddbCzSw&lib=MF8XVMqX8SVPG37rKezlBwYizMWXW7kZ8"
+);
+const data = await response.json();
+
+const Logo = data.Logo.map(item => ({
+  Nama: item.Nama,
+  Url: item.Url
+}));
+
+---
+
+<Layout
+  title="Tahfizh Makkah"
+  size="cover"
+  favicon="/C2Tm.webp"
+  background="url('/vignet.webp')"
+>
+
+
+    <div
+    class="grid gap-4 md:gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-6 lg:mb-16"
+  >
+  {
+    Logo.map(({Nama, Url})=>
+    <a
+          href={Url}
+          class="square-container items-center bg-cover bg-center rounded-lg shadow dark:bg-teal-800 dark:border-gray-700 relative"
+
+        >
+        <img src={Url} />
+          <div class="absolute inset-0 bg-black opacity-40" />
+          <h3 class="text-white text-lg font-bold absolute top-4 left-4">
+            {Nama}
+          </h3>
+  
+          
+        </a>
+    )}
+
+
+        
+  
+  </div>
+  
+
+
+</Layout>
+
+<style is:inline>
+  .scroll-container::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #a0aec0;
+    border-radius: 999px;
+  }
+
+  /* CSS tambahan */
+  .square-container::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+  .scroll-container::-webkit-scrollbar-track {
+    background: #edf2f7;
+    border-radius: 999px;
+    margin-bottom: 45px;
+  }
+  .active {
+    background-color: #007bff !important;
+    color: white !important;
+  }
+</style>
